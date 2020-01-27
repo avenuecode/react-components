@@ -1,6 +1,6 @@
 MenuPopover component for Avenue Code.
 
-**Improve accessibility of this component by:** 
+**Improve accessibility of this component by:**
   * Adding ARIA attributes (`aria-haspopup`, `aria-expanded`, etc) to the MenuPopover toggle.
   * Giving the toggle button an `id` that will be assigned to the `aria-labelledby` attribute by the dropdown menu.
   * Assigning the `'dropdown-item'` class to each MenuPopover child to enable standard keyboard menu interactions.
@@ -14,10 +14,10 @@ To apply default styles, import Bootstrap classes:
 @import "~@ac-ui/design-system/src/bridge/dropdown";
 @import "~@ac-ui/design-system/src/bridge/button-group";
 ```
-  
+
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 
-**Don't see the import for `ac-ui` base styles?**  
+**Don't see the import for `ac-ui` base styles?**
 That's because they're already included when importing `bridge`, no need to duplicate import!
 
 ___
@@ -42,7 +42,7 @@ const ExampleMenuPopover = () => {
   const handleClose = () => setOpen(false);
   const Toggle = () => (
     <Button
-      classList="menu-popover-button"
+      classList="btn-secondary menu-popover-button"
       id="popover-toggle"
       onClick={handleClick}
       data-toggle="dropdown"
@@ -78,7 +78,7 @@ const ExampleMenuPopover = () => {
   const handleClose = () => setOpen(false);
   const Toggle = () => (
     <Button
-      classList="menu-popover-button"
+      classList="btn-secondary menu-popover-button"
       id="popover-toggle"
       onClick={handleClick}
       data-toggle="dropdown"
@@ -114,7 +114,7 @@ const ExampleMenuPopover = () => {
   const handleClose = () => setOpen(false);
   const Toggle = () => (
     <Button
-      classList="menu-popover-button"
+      classList="btn-secondary menu-popover-button"
       id="popover-toggle"
       onClick={handleClick}
       data-toggle="dropdown"

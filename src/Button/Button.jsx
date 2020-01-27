@@ -22,7 +22,7 @@ const Button = (props: Props) => {
   return (
     <button
       type="button"
-      className={classNames('ac-button', classList)}
+      className={classNames('btn', classList)}
       onClick={onClick}
       {...rest}
     >
@@ -32,7 +32,7 @@ const Button = (props: Props) => {
 };
 
 Button.defaultProps = {
-  classList: '',
+  classList: ['btn-primary'],
   onClick: null,
 };
 

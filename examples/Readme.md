@@ -46,7 +46,7 @@ const App = () => {
     <div className="acdc-login acdc-login-wrapper container mt-5">
       <Row classList="d-flex justify-content-center">
         <div className="acdc-login__presentation col-4 px-4 col">
-          
+
           <header className="acdc-login__presentation-header">
             <img className="acdc-login__presentation-header__logo" src={AClogo} alt="Avenue Code logo" />
             <HeaderTitle text={brandName} classList="acdc-login__presentation-header__title text-uppercase my-4" />
@@ -60,7 +60,7 @@ const App = () => {
 
           <footer className="acdc-login__presentation-footer">
             <form className="acdc-login__presentation-footer__form form">
-              
+
               <MenuPopover isOpen={isOpen} onClose={handleClose} toggle={<PopoverToggle />}>
                 <div className="dropdown-item">
                   <div className="justify-content-center">
@@ -73,7 +73,7 @@ const App = () => {
 
             </form>
           </footer>
-          
+
         </div>
       </Row>
     </div>
@@ -105,11 +105,11 @@ const App = () => {
   // Hooks
   const [isOpen, setOpen] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
-  
+
   // Event handlers
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
+
   const tableCaption = 'This is an example table.';
   const tableHeaders = ['Account', 'Opportunities', 'Revenue', 'Actions']
   const tableData = [
@@ -117,7 +117,7 @@ const App = () => {
     ['Brazuca', '3', 'Less than $100 USD', <Button classList="btn btn-sm btn-outline-primary">Edit</Button>],
     ['Caterpillar', '5', 'More than $100 USD', <Button classList="btn btn-sm btn-outline-primary">Edit</Button>],
   ];
-  
+
   return (
     <>
       <Button classList="btn btn-primary btn-block" onClick={handleOpen}>Open Modal</Button>
@@ -128,10 +128,10 @@ const App = () => {
       >
         <div className="modal-content">
           <LoadingBar isLoading={isOpen} />
-          
+
           <div className="example-form-wrapper p-5 bg-white border rounded">
             <form className="example-form">
-              
+
               <section className="modal-header d-flex justify-content-between align-items-center mb-3">
                 <AlternatingText text="Monthly Report" As="h2" separator=" " isReversed={true} />
                 <X className="clickable" onClick={handleClose} />
@@ -142,7 +142,7 @@ const App = () => {
                   caption={tableCaption}
                   headerNames={tableHeaders}
                   tableData={tableData}
-                  classList="table-sm table-striped" 
+                  classList="table-sm table-striped"
                 />
                 <label
                   htmlFor="description"
@@ -210,7 +210,7 @@ const App = () => {
   const handleAlert = () => { setLoading(false) };
   const handleDateChange = (newDate) => { setDate(newDate) };
   const handleClose = () => { setAlert(false) };
-  const handleConfirm = () => { 
+  const handleConfirm = () => {
     formInput.requestTypeId && formInput.startTime && formInput.endTime ? setLoading(true) : setAlert(true);
   };
   const handleFormInput = (e) => {
@@ -225,14 +225,13 @@ const App = () => {
 
   // Custom DatePicker Toggle
   const DateToggle = forwardRef((props, ref) => (
-    <button
-      type="button"
-      className="btn-outline-primary rounded px-5"
+    <Button
+      classList="btn btn-outline-primary"
       ref={ref}
       onClick={props.onClick}
     >
       {props.value}
-    </button>
+    </Button>
   ));
 
   // Header navigation
@@ -255,7 +254,7 @@ const App = () => {
     { value: 9 , type: 'Working on Late Night' },
     { value: 10 , type: 'Working on Weekend or Holiday' },
   ]
-  
+
   return (
     <>
       <Header title="AC UI" nav={nav} onHamburgerMenuClick={() => null} classList="mb-5" />
@@ -269,7 +268,7 @@ const App = () => {
 
           <section className="form-body">
             <Row classList="row m-0">
-              <div className="form-group col col-sm-4 pl-0 pr-4">
+              <div className="form-group col col-sm-6 pl-0 pr-4">
                 <label
                   htmlFor="requestTypeId"
                   className="col-form-label-sm text-secondary text-uppercase"
