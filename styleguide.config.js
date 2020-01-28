@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.styleguide.js');
 
 module.exports = {
   title: 'Components Library',
-  version: '1.0.0',
+  version: '1.0.4',
   components: [
     'src/**/[A-Z]*.jsx',
     'templates/**/[A-Z]*.jsx',
