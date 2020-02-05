@@ -11,6 +11,8 @@ type Props = {
   headerNames: Array<string>,
   /** 2D array of shape: `[[row1-value1, row1-value2], [row2-value1, row2-value2], ...]` */
   tableData?: Array<any>,
+  /** Custom header element to present within table header. */
+  CustomTableHeader?: React.Component,
   /** Custom body element to present within table body. */
   CustomTableBody?: React.Component,
   /** Additional classNames to add to table component. */
@@ -21,6 +23,7 @@ const Table = (props: Props) => {
   const {
     headerNames,
     tableData,
+    CustomTableHeader,
     CustomTableBody,
     classList,
     caption,
@@ -30,7 +33,7 @@ const Table = (props: Props) => {
   return (
     <table className={classNames('ac-table table table-bordered table-hover', classList)} {...rest}>
       <caption>{caption}</caption>
-      <TableHeader headerNames={headerNames} />
+      <TableHeader headerNames={headerNames} CustomTableHeader={CustomTableHeader} />
       <TableBody tableData={tableData} CustomTableBody={CustomTableBody} />
     </table>
   );
@@ -39,6 +42,7 @@ const Table = (props: Props) => {
 Table.defaultProps = {
   caption: null,
   tableData: [],
+  CustomTableHeader: null,
   CustomTableBody: null,
   classList: '',
 };
