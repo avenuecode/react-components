@@ -366,3 +366,54 @@ const App = () => {
 
 <App />
 ```
+
+
+___
+#### **New Version Preview**
+Features:
+  * Alert modal with warning dialog if fields are empty when `submit` is clicked
+  * Loading bar becomes active when form is correctly submitted (i.e. complete all fields and then click `submit`)
+  * When loading is active, you can stop it by clicking on `cancel`
+___
+**styles.scss**
+```scss
+@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@ac-ui/design-system/src/bridge/grid';    // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+```
+
+**App.jsx**
+```jsx
+import React, { useState, forwardRef } from 'react';
+import { X } from 'react-feather';
+import { HeaderV2 } from '../src';
+import AClogo from './assets/logo-avenue-code.svg';
+
+const App = () => {
+
+  return (
+    <>
+      <HeaderV2
+      title={
+        <div>
+        <div className="ac-header-title-text">DIGITAL</div>
+        <div className="ac-header-title-text">CONTROL</div>
+        </div>
+        }
+      classList="mb-5" 
+      logo={
+        <img 
+        className="ac-header-title-logo" 
+        src={AClogo} 
+        alt="Avenue Code logo" />
+        }/>
+    </>
+  )
+}
+
+<App />
+```

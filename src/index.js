@@ -15,6 +15,9 @@ import TabSelector from './TabSelector';
 import Table, { TableHeader, TableBody, TableRow } from './Table';
 import { Toaster } from './Toaster';
 
+import HeaderV2 from './HeaderV2';
+import HeaderTitleV2 from './HeaderTitleV2';
+
 export {
   AlertModal,
   AlternatingText,
@@ -34,5 +37,7 @@ export {
   TableHeader,
   TableBody,
   TableRow,
-  Toaster
+  Toaster,
+  HeaderV2,
+  HeaderTitleV2
 };
