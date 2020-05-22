@@ -4,6 +4,8 @@ import { Menu } from 'react-feather';
 import HeaderTitleV2 from '../HeaderTitleV2';
 import MenuPopover from '../MenuPopover';
 import MenuPopoverSquare from '../MenuPopoverSquare';
+import Notification from '../Notification';
+import ProfileBadge from '../ProfileBadge';
 import './style.scss';
 
 type Props = {
@@ -38,8 +40,12 @@ const HeaderV2 = (props: Props) => {
           <div className="ac-header-item ac-header-item-menu">
             <MenuPopoverSquare />
           </div>
-          <div className="ac-header-item ac-header-item-notification">notf</div>
-          <div className="ac-header-item ac-header-item-profile">profile</div>
+          <div className="ac-header-item ac-header-item-notification">
+            <Notification />
+          </div>
+          <div className="ac-header-item ac-header-item-profile">
+            <ProfileBadge />
+          </div>
         </div>
       </div>
       <div className="ac-header-division" />
