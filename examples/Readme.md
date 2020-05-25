@@ -398,19 +398,22 @@ const App = () => {
   return (
     <>
       <HeaderV2
-      title={
-        <div>
-        <div className="ac-header-title-text">DIGITAL</div>
-        <div className="ac-header-title-text">CONTROL</div>
-        </div>
-        }
-      classList="mb-5" 
-      logo={
+        title={
+          <div>
+          <div className="ac-header-title-text">DIGITAL</div>
+          <div className="ac-header-title-text">CONTROL</div>
+          </div>
+          }
+        classList="mb-5" 
+        logo={
         <img 
-        className="ac-header-title-logo" 
-        src={AClogo} 
-        alt="Avenue Code logo" />
-        }/>
+          className="ac-header-title-logo" 
+          src={AClogo} 
+          alt="Avenue Code logo" />
+          }
+          profileLogo="../examples/assets/logo-fanatics.png"
+          profilePicture = "../examples/assets/avatar-pic.png"
+      />
     </>
   )
 }

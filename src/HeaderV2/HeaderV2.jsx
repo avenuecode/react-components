@@ -13,6 +13,10 @@ type Props = {
   title: React.Element,
   /** Header company logo. */
   logo?: React.Element,
+  /** Header profile logo. */
+  profileLogo?: string,
+  /** Header profile picture. */
+  profilePicture?: string,
   /** Menu popover toggle button. This element/component should contain an onClick callback that
    * controls the open/close state of the popover. */
   /** Callback function for when hamburger menu icon is clicked. */
@@ -20,7 +24,13 @@ type Props = {
 };
 
 const HeaderV2 = (props: Props) => {
-  const { title, logo, onHamburgerMenuClick } = props;
+  const {
+    title,
+    logo,
+    profileLogo,
+    profilePicture,
+    onHamburgerMenuClick
+  } = props;
 
   return (
     <div className="ac-header nav-wrapper">
@@ -44,7 +54,7 @@ const HeaderV2 = (props: Props) => {
             <Notification />
           </div>
           <div className="ac-header-item ac-header-item-profile">
-            <ProfileBadge />
+            <ProfileBadge logo={profileLogo} picture={profilePicture} />
           </div>
         </div>
       </div>
@@ -55,6 +65,8 @@ const HeaderV2 = (props: Props) => {
 
 HeaderV2.defaultProps = {
   logo: null,
+  profileLogo: null,
+  profilePicture: null,
   onHamburgerMenuClick: null
 };
 
