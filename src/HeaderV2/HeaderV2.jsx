@@ -51,7 +51,7 @@ const HeaderV2 = (props: Props) => {
             <MenuPopoverSquare />
           </div>
           <div className="ac-header-item ac-header-item-notification">
-            <Notification />
+            <Notification count={5} />
           </div>
           <div className="ac-header-item ac-header-item-profile">
             <ProfileBadge logo={profileLogo} picture={profilePicture} />
