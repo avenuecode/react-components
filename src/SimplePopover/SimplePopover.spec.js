@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MenuPopoverSquare from './MenuPopoverSquare';
+import SimplePopover from './SimplePopover';
 
-describe('MenuPopoverSquare', () => {
-  const wrapper = props => shallow(<MenuPopoverSquare {...props} />);
+describe('SimplePopover', () => {
+  const wrapper = props => shallow(<SimplePopover {...props} />);
   const textString = 'Pseudo language is preferred in tests';
   const child = <strong>{textString}</strong>;
 

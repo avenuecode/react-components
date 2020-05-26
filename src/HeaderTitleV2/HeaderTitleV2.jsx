@@ -20,6 +20,6 @@ const HeaderTitleV2 = (props: Props) => {
   );
 };
 
-HeaderTitleV2.displayName = 'HeaderTitleV2';
+HeaderTitleV2.displayName = 'HeaderTitle (beta)';
 
 export default HeaderTitleV2;

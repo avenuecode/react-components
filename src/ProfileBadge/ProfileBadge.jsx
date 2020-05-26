@@ -25,4 +25,6 @@ const ProfileBadge = (props: Props) => {
   );
 };
 
+ProfileBadge.displayName = 'ProfileBadge (beta)';
+
 export default ProfileBadge;

@@ -413,6 +413,24 @@ const App = () => {
           }
           profileLogo="../examples/assets/logo-fanatics.png"
           profilePicture = "../examples/assets/avatar-pic.png"
+          dotsMenuChildren={
+            <div>
+            <div>Option 1</div>
+            <div>Option 2</div>
+            <div>Option 3</div>
+            <div>Option 4</div>
+            <div>Option 5</div>
+            </div>
+          }
+                    notificationChildren={
+            <div>
+            <div>Notification 1</div>
+            <div>Notification 2</div>
+            <div>Notification 3</div>
+            <div>Notification 4</div>
+            <div>Notification 5</div>
+            </div>
+          }
       />
     </>
   )
