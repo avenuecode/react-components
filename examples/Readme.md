@@ -384,14 +384,56 @@ ___
 @import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
 @import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
 @import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+
 ```
 
 **App.jsx**
 ```jsx
 import React, { useState, forwardRef } from 'react';
 import { X } from 'react-feather';
-import { HeaderV2 } from '../src';
+import { HeaderV2, TabSelector } from '../src';
 import AClogo from './assets/logo-avenue-code.svg';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'New',
+      label: 'New'
+    },
+    {
+      id: 'Archived',
+      label: 'Archived'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <div
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </div>
+  ));
+
+  return (
+    <>
+        <div className="page-wrapper container d-flex flex-column" style={{width: '60vw'}}>
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <h2 className="text-capitalize font-weight-black no-selec">
+              Notifications
+            </h2>
+            <TabSelector tabItems={tabItems} />
+          </div>
+          <hr className="my-4" />
+        </div>
+    </>
+  );
+};
 
 const App = () => {
 
@@ -422,13 +464,14 @@ const App = () => {
             <div>Option 5</div>
             </div>
           }
-                    notificationChildren={
-            <div>
-            <div>Notification 1</div>
-            <div>Notification 2</div>
-            <div>Notification 3</div>
-            <div>Notification 4</div>
-            <div>Notification 5</div>
+          notificationContent={
+            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <ExampleTabSelector />
+            </div>
+          }
+          profileContent={
+            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <ExampleTabSelector />
             </div>
           }
       />

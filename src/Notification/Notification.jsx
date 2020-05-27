@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Bell from '../assets/bell.svg';
-import SimplePopover from '../SimplePopover';
+import Modal from '../Modal';
 import './style.scss';
 
 type Props = {
@@ -16,22 +16,26 @@ const Notification = (props: Props) => {
   const {
     count, children, handleClick, isOpen
   } = props;
+  // const classes = ['custom', 'custom-modal'];
+  // const ariaAttributes = {
+  //   describedby: 'description'
+  // };
 
   return (
-    <div
-      className="ac-notification"
-      onClick={handleClick}
-      onKeyDown={handleClick}
-      role="button"
-      tabIndex={-1}
-    >
-      <img
+    <div className="ac-notification">
+      <div
+        onKeyDown={handleClick}
+        role="button"
+        tabIndex={-1}
+        onClick={handleClick}
         className="ac-notification__symbol"
-        src={Bell}
-        alt="Avenue Code logo"
-      />
-      <div className="ac-notification__counter">{count}</div>
-      <SimplePopover isOpen={isOpen}>{children}</SimplePopover>
+      >
+        <img src={Bell} alt="Avenue Code logo" />
+        <div className="ac-notification__counter">{count}</div>
+      </div>
+      <Modal isOpen={isOpen} contentLabel="Notifications" onClose={handleClick}>
+        {children}
+      </Modal>
     </div>
   );
 };

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Menu } from 'react-feather';
 import HeaderTitleV2 from '../HeaderTitleV2';
-import MenuPopover from '../MenuPopover';
 import DotsMenu from '../DotsMenu';
 import Notification from '../Notification';
 import ProfileBadge from '../ProfileBadge';
@@ -22,7 +21,8 @@ type Props = {
   /** Callback function for when hamburger menu icon is clicked. */
   onHamburgerMenuClick?: Function,
   dotsMenuChildren: React.Element,
-  notificationChildren: React.Element
+  notificationContent: React.Element,
+  profileContent: React.Element
 };
 
 const HeaderV2 = (props: Props) => {
@@ -33,23 +33,18 @@ const HeaderV2 = (props: Props) => {
     profilePicture,
     onHamburgerMenuClick,
     dotsMenuChildren,
-    notificationChildren
+    notificationContent,
+    profileContent
   } = props;
 
   const [isDotsMenuOpen, setDotsMenuOpen] = useState(false);
   const [isNotificationsOpen, setNotificationsOpen] = useState(false);
-  const handleDotsMenuClick = () => {
-    if (!isDotsMenuOpen) {
-      setNotificationsOpen(false);
-    }
-    setDotsMenuOpen(!isDotsMenuOpen);
-  };
-  const handleNotificationsClick = () => {
-    if (!isNotificationsOpen) {
-      setDotsMenuOpen(false);
-    }
-    setNotificationsOpen(!isNotificationsOpen);
-  };
+  const [isProfileOpen, setProfileOpen] = useState(false);
+
+  const handleDotsMenuClick = () => setDotsMenuOpen(!isDotsMenuOpen);
+
+  const handleNotificationsClick = () => setNotificationsOpen(!isNotificationsOpen);
+  const handleProfileClick = () => setProfileOpen(!isProfileOpen);
 
   return (
     <div className="ac-header nav-wrapper">
@@ -77,11 +72,18 @@ const HeaderV2 = (props: Props) => {
               isOpen={isNotificationsOpen}
               handleClick={handleNotificationsClick}
             >
-              {notificationChildren}
+              {notificationContent}
             </Notification>
           </div>
           <div className="ac-header-item ac-header-item-profile">
-            <ProfileBadge logo={profileLogo} picture={profilePicture} />
+            <ProfileBadge
+              logo={profileLogo}
+              picture={profilePicture}
+              isOpen={isProfileOpen}
+              handleClick={handleProfileClick}
+            >
+              {profileContent}
+            </ProfileBadge>
           </div>
         </div>
       </div>
@@ -97,6 +99,6 @@ HeaderV2.defaultProps = {
   onHamburgerMenuClick: null
 };
 
-MenuPopover.displayName = 'Header (beta)';
+HeaderV2.displayName = 'Header (beta)';
 
 export default HeaderV2;

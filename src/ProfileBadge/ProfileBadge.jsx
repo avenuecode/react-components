@@ -1,26 +1,47 @@
 // @flow
 import * as React from 'react';
+import Modal from '../Modal';
 import './style.scss';
 
 type Props = {
   logo: string,
-  picture: string
+  picture: string,
+  children: React.Element,
+  isOpen: boolean,
+  handleClick: Function
 };
 
 const ProfileBadge = (props: Props) => {
-  const { logo, picture } = props;
+  const {
+    logo, picture, children, isOpen, handleClick
+  } = props;
   return (
-    <div className="ac-profile-badge">
-      <div>
-        <img className="ac-profile-badge__logo" src={logo} alt="Company Logo" />
+    <div>
+      <div
+        onKeyDown={handleClick}
+        role="button"
+        tabIndex={-1}
+        onClick={handleClick}
+        className="ac-profile-badge"
+      >
+        <div>
+          <img
+            className="ac-profile-badge__logo"
+            src={logo}
+            alt="Company Logo"
+          />
+        </div>
+        <div>
+          <img
+            className="ac-profile-badge__picture"
+            src={picture}
+            alt="Profile Avatar"
+          />
+        </div>
       </div>
-      <div>
-        <img
-          className="ac-profile-badge__picture"
-          src={picture}
-          alt="Profile Avatar"
-        />
-      </div>
+      <Modal isOpen={isOpen} contentLabel="Profile" onClose={handleClick}>
+        {children}
+      </Modal>
     </div>
   );
 };
