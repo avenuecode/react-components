@@ -366,3 +366,119 @@ const App = () => {
 
 <App />
 ```
+
+
+___
+#### **New Version Preview**
+Features:
+  * Alert modal with warning dialog if fields are empty when `submit` is clicked
+  * Loading bar becomes active when form is correctly submitted (i.e. complete all fields and then click `submit`)
+  * When loading is active, you can stop it by clicking on `cancel`
+___
+**styles.scss**
+```scss
+@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@ac-ui/design-system/src/bridge/grid';    // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+
+```
+
+**App.jsx**
+```jsx
+import React, { useState, forwardRef } from 'react';
+import { X } from 'react-feather';
+import { TabSelector } from '../src';
+import Header from '../src/b_Header';
+import AClogo from './assets/logo-avenue-code.svg';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'New',
+      label: 'New'
+    },
+    {
+      id: 'Archived',
+      label: 'Archived'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <div
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </div>
+  ));
+
+  return (
+    <>
+        <div className="page-wrapper container d-flex flex-column" style={{width: '60vw'}}>
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <h2 className="text-capitalize font-weight-black no-selec">
+              Notifications
+            </h2>
+            <TabSelector tabItems={tabItems} />
+          </div>
+          <hr className="my-4" />
+        </div>
+    </>
+  );
+};
+
+const App = () => {
+
+  return (
+    <>
+      <Header
+        title={
+          <div>
+          <div className="ac-header-title-text">DIGITAL</div>
+          <div className="ac-header-title-text">CONTROL</div>
+          </div>
+          }
+        classList="mb-5" 
+        logo={
+        <img 
+          className="ac-header-title-logo" 
+          src={AClogo} 
+          alt="Avenue Code logo" />
+          }
+          profileLogo="../examples/assets/logo-fanatics.png"
+          profilePicture = "../examples/assets/avatar-pic.png"
+          dotsMenuChildren={
+            <div>
+            <div>Option 1</div>
+            <div>Option 2</div>
+            <div>Option 3</div>
+            <div>Option 4</div>
+            <div>Option 5</div>
+            </div>
+          }
+          notificationContent={
+            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <ExampleTabSelector />
+            </div>
+          }
+          profileContent={
+            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <ExampleTabSelector />
+            </div>
+          }
+      />
+    </>
+  )
+}
+
+<App />
+```

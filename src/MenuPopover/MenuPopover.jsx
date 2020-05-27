@@ -17,8 +17,8 @@ type Props = {
   classList?: string | Array<string>,
   /** Alignmnet of popover with respect to toggle button.
    * Accepted values are `left` and `right`. Default is `left`.  */
-  alignment?: string,
-}
+  alignment?: string
+};
 
 const MenuPopover = (props: Props) => {
   const {
@@ -50,12 +50,28 @@ const MenuPopover = (props: Props) => {
   });
 
   return (
-    <div className={classNames('ac-menu-popover menu-popover-wrapper btn-group', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur} {...rest}>
+    <div
+      className={classNames(
+        'ac-menu-popover menu-popover-wrapper btn-group',
+        classList
+      )}
+      tabIndex={-1}
+      ref={wrapperEl}
+      onBlur={handleBlur}
+      {...rest}
+    >
       {toggle}
 
-      { isOpen && children && (
-        <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`} aria-labelledby={toggle && wrapperEl.current.firstChild.id}>
-          { <div className={`ac-menu-popover__arrow ac-menu-popover__arrow--${alignment}`} /> }
+      {isOpen && children && (
+        <div
+          className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}
+          aria-labelledby={toggle && wrapperEl.current.firstChild.id}
+        >
+          {
+            <div
+              className={`ac-menu-popover__arrow ac-menu-popover__arrow--${alignment}`}
+            />
+          }
           {children}
         </div>
       )}
@@ -65,7 +81,7 @@ const MenuPopover = (props: Props) => {
 
 MenuPopover.defaultProps = {
   classList: '',
-  alignment: 'left',
+  alignment: 'left'
 };
 
 MenuPopover.displayName = 'MenuPopover';

@@ -1,0 +1,16 @@
+@import '~@ac-ui/design-system/src/base';
+
+.ac-dots-menu {
+  position: relative;
+
+  &-button {
+    width: 18px;
+    height: 16px;
+  }
+
+  &-square {
+    box-sizing: border-box;
+    border: 1px solid #464646;
+    border-radius: 0;
+  }
+}
