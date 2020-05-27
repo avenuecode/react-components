@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Header from './HeaderV2';
+import Header from './Header';
 
 const HEADER_TITLE_SELECTOR = '.ac-header-navbar__header-title';
 const NAV_SELECTOR = '.ac-header-navbar__nav';

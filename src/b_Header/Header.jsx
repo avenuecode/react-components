@@ -1,10 +1,10 @@
 // @flow
 import React, { useState } from 'react';
 import { Menu } from 'react-feather';
-import HeaderTitleV2 from '../HeaderTitleV2';
-import DotsMenu from '../DotsMenu';
-import Notification from '../Notification';
-import ProfileBadge from '../ProfileBadge';
+import HeaderTitle from '../b_HeaderTitle';
+import DotsMenu from '../b_DotsMenu';
+import Notification from '../b_Notification';
+import ProfileBadge from '../b_ProfileBadge';
 import './style.scss';
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
   profileContent: React.Element
 };
 
-const HeaderV2 = (props: Props) => {
+const Header = (props: Props) => {
   const {
     title,
     logo,
@@ -57,7 +57,7 @@ const HeaderV2 = (props: Props) => {
             />
           )}
 
-          <HeaderTitleV2 text={title} logo={logo} />
+          <HeaderTitle text={title} logo={logo} />
         </div>
 
         <div className="d-flex justify-content-between align-items-center">
@@ -92,13 +92,13 @@ const HeaderV2 = (props: Props) => {
   );
 };
 
-HeaderV2.defaultProps = {
+Header.defaultProps = {
   logo: null,
   profileLogo: null,
   profilePicture: null,
   onHamburgerMenuClick: null
 };
 
-HeaderV2.displayName = 'Header (beta)';
+Header.displayName = 'Header (beta)';
 
-export default HeaderV2;
+export default Header;

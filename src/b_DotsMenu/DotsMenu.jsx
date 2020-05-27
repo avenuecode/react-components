@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import SimplePopover from '../SimplePopover';
+import SimplePopover from '../b_SimplePopover';
 import './style.scss';
 
 type Props = {

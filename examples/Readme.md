@@ -391,7 +391,8 @@ ___
 ```jsx
 import React, { useState, forwardRef } from 'react';
 import { X } from 'react-feather';
-import { HeaderV2, TabSelector } from '../src';
+import { TabSelector } from '../src';
+import Header from '../src/b_Header';
 import AClogo from './assets/logo-avenue-code.svg';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
@@ -439,7 +440,7 @@ const App = () => {
 
   return (
     <>
-      <HeaderV2
+      <Header
         title={
           <div>
           <div className="ac-header-title-text">DIGITAL</div>
