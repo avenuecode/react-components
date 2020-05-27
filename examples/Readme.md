@@ -390,11 +390,23 @@ ___
 **App.jsx**
 ```jsx
 import React, { useState, forwardRef } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { X } from 'react-feather';
 import { TabSelector } from '../src';
 import Header from '../src/b_Header';
-import AClogo from './assets/logo-avenue-code.svg';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import SideMenu from '../src/b_SideMenu';
+
+import AClogoSVG from './assets/logo-avenue-code.svg';
+import CalendarWeekSVG from './assets/calendar-week.svg';
+import CalendarMonthSVG from './assets/calendar-month.svg';
+import MessageRequestSVG from './assets/message-request.svg';
+import BriefcaseSVG from './assets/briefcase.svg';
+import DollarSignSVG from './assets/dollar-sign.svg';
+import ClockSVG from './assets/clock.svg';
+import CrosshairSVG from './assets/crosshair.svg';
+import UsersSVG from './assets/users.svg';
+import MapPinSVG from './assets/map-pin.svg';
+
 
 const ExampleTabSelector = () => {
   const tabItemsData = [
@@ -436,6 +448,50 @@ const ExampleTabSelector = () => {
   );
 };
 
+const menuData = [
+    {
+      id: 'TIME_PERIOD',
+      title: 'Time Period',
+      items: [
+        { id: 'TIMESHEETS', path: '', name: 'Timesheets', icon: <img src={CalendarWeekSVG}/> },
+        { id: 'MON_REPORT', path: '', name: 'Monthly Report', icon: <img src={CalendarMonthSVG}/> }
+        ]
+    },
+    {
+      id: 'REQUESTS',
+      title: 'Requests',
+      items: [
+        { id: 'REQUESTS', path: '', name: 'Requests', icon: <img src={MessageRequestSVG}/> },
+        { id: 'VACATION', path: '', name: 'Vacation', icon: <img src={BriefcaseSVG}/> },
+        { id: 'REIMBURSEMENTS', path: '', name: 'Reimbursements', icon: <img src={DollarSignSVG}/> }
+        ]
+    },
+    {
+      id: 'REPORTS',
+      title: 'Reports',
+      items: [
+        { id: 'WORK_HOURS', path: '', name: 'Working Hours', icon: <img src={ClockSVG}/> },
+        { id: 'TS_ACCURACY', path: '', name: 'Timesheet Accurary', icon: <img src={MessageRequestSVG}/> },
+        { id: 'REQUEST_STS', path: '', name: 'Requests Status', icon: <img src={CrosshairSVG}/> }
+        ]
+    },
+    {
+      id: 'HR',
+      title: 'Human Resources',
+      items: [
+        { id: 'EMPLOYEE_MNG', path: '', name: 'Emmployee Management', icon: <img src={UsersSVG}/> },
+        { id: 'TMP_LOCATION', path: '', name: 'Temporary Location', icon: <img src={MapPinSVG}/> }
+      ]
+    },
+    {
+      id: 'FINANCE',
+      title: 'Finance',
+      items: [
+        { id: 'PAYROLL', path: '', name: 'Payroll', icon: <img src={DollarSignSVG}/> }
+      ]
+    }
+  ];
+
 const App = () => {
 
   return (
@@ -451,7 +507,7 @@ const App = () => {
         logo={
         <img 
           className="ac-header-title-logo" 
-          src={AClogo} 
+          src={AClogoSVG} 
           alt="Avenue Code logo" />
           }
           profileLogo="../examples/assets/logo-fanatics.png"
@@ -476,6 +532,9 @@ const App = () => {
             </div>
           }
       />
+      <BrowserRouter>
+        <SideMenu menuData={menuData}/>
+      </BrowserRouter>
     </>
   )
 }

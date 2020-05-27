@@ -1,0 +1,63 @@
+@import '~@ac-ui/design-system/src/base';
+
+.ac-side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 224px; // should adjust with itens size
+  height: 100vh;
+  padding: 24px 16px;
+
+  background: #fff;
+
+  border-right: 1px solid #e4e4e4;
+
+  &-category {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+
+    width: 100%;
+    padding-top: 16px;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      font-size: 10px;
+
+      // font-family: Overpass;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 15px;
+      color: #c1c1c1;
+      text-transform: uppercase;
+    }
+  }
+  &-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    padding: 8px;
+    border-radius: 8px;
+
+    &-text {
+      padding-left: 8px;
+      // font-family: Overpass;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 21px;
+      color: #8a8a8a;
+    }
+  }
+
+  &-end {
+    width: 100%;
+    height: 1px;
+    background-color: #e4e4e4;
+  }
+}
