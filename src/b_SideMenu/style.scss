@@ -40,6 +40,7 @@
     align-items: center;
     justify-content: start;
 
+    width: 100%;
     padding: 8px;
     border-radius: 8px;
 
@@ -59,4 +60,8 @@
     height: 1px;
     background-color: #e4e4e4; // map-get($colors, 'urban-gray-light')
   }
+}
+
+.active {
+  background: rgba(164, 200, 255, 0.5);
 }
