@@ -434,7 +434,6 @@ const ExampleTabSelector = () => {
   ));
 
   return (
-    <>
         <div className="page-wrapper container d-flex flex-column" style={{width: '60vw'}}>
           <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
             <h2 className="text-capitalize font-weight-black no-selec">
@@ -444,7 +443,6 @@ const ExampleTabSelector = () => {
           </div>
           <hr className="my-4" />
         </div>
-    </>
   );
 };
 
@@ -453,41 +451,41 @@ const menuData = [
       id: 'TIME_PERIOD',
       title: 'Time Period',
       items: [
-        { id: 'TIMESHEETS', path: '', name: 'Timesheets', icon: <img src={CalendarWeekSVG}/> },
-        { id: 'MON_REPORT', path: '', name: 'Monthly Report', icon: <img src={CalendarMonthSVG}/> }
+        { id: 'TIMESHEETS', path: '/', name: 'Timesheets', icon: <img src={CalendarWeekSVG}/> },
+        { id: 'MON_REPORT', path: '/', name: 'Monthly Report', icon: <img src={CalendarMonthSVG}/> }
         ]
     },
     {
       id: 'REQUESTS',
       title: 'Requests',
       items: [
-        { id: 'REQUESTS', path: '', name: 'Requests', icon: <img src={MessageRequestSVG}/> },
-        { id: 'VACATION', path: '', name: 'Vacation', icon: <img src={BriefcaseSVG}/> },
-        { id: 'REIMBURSEMENTS', path: '', name: 'Reimbursements', icon: <img src={DollarSignSVG}/> }
+        { id: 'REQUESTS', path: '/', name: 'Requests', icon: <img src={MessageRequestSVG}/> },
+        { id: 'VACATION', path: '/', name: 'Vacation', icon: <img src={BriefcaseSVG}/> },
+        { id: 'REIMBURSEMENTS', path: '/', name: 'Reimbursements', icon: <img src={DollarSignSVG}/> }
         ]
     },
     {
       id: 'REPORTS',
       title: 'Reports',
       items: [
-        { id: 'WORK_HOURS', path: '', name: 'Working Hours', icon: <img src={ClockSVG}/> },
-        { id: 'TS_ACCURACY', path: '', name: 'Timesheet Accurary', icon: <img src={MessageRequestSVG}/> },
-        { id: 'REQUEST_STS', path: '', name: 'Requests Status', icon: <img src={CrosshairSVG}/> }
+        { id: 'WORK_HOURS', path: '/', name: 'Working Hours', icon: <img src={ClockSVG}/> },
+        { id: 'TS_ACCURACY', path: '/', name: 'Timesheet Accurary', icon: <img src={MessageRequestSVG}/> },
+        { id: 'REQUEST_STS', path: '/', name: 'Requests Status', icon: <img src={CrosshairSVG}/> }
         ]
     },
     {
       id: 'HR',
       title: 'Human Resources',
       items: [
-        { id: 'EMPLOYEE_MNG', path: '', name: 'Emmployee Management', icon: <img src={UsersSVG}/> },
-        { id: 'TMP_LOCATION', path: '', name: 'Temporary Location', icon: <img src={MapPinSVG}/> }
+        { id: 'EMPLOYEE_MNG', path: '/', name: 'Emmployee Management', icon: <img src={UsersSVG}/> },
+        { id: 'TMP_LOCATION', path: '/', name: 'Temporary Location', icon: <img src={MapPinSVG}/> }
       ]
     },
     {
       id: 'FINANCE',
       title: 'Finance',
       items: [
-        { id: 'PAYROLL', path: '', name: 'Payroll', icon: <img src={DollarSignSVG}/> }
+        { id: 'PAYROLL', path: '/', name: 'Payroll', icon: <img src={DollarSignSVG}/> }
       ]
     }
   ];
@@ -522,12 +520,12 @@ const App = () => {
             </div>
           }
           notificationContent={
-            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <div className="modal-content p-2" style={{width: '60vw'}}>
             <ExampleTabSelector />
             </div>
           }
           profileContent={
-            <div className="modal-content p-5" style={{width: '60vw'}}>
+            <div className="modal-content p-2" style={{width: '60vw'}}>
             <ExampleTabSelector />
             </div>
           }

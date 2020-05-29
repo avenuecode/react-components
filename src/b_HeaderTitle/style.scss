@@ -1,3 +1,4 @@
+@import '~@ac-ui/design-system/src/base';
 .ac-header {
   &-title {
     display: flex;
@@ -10,17 +11,16 @@
 
     &-text {
       display: table-caption;
-      // font-family: $font-family-Overpass;
       font-size: 10px;
       font-style: normal;
       font-weight: 900;
       line-height: 10px;
-      color: #0061a2;
+      color: map-get($colors, 'blue-darker');
     }
   }
   &-division {
     height: 1px;
-    background: #e4e4e4;
+    background: #e4e4e4; // map-get($colors, 'urban-gray-light')
   }
 }
 
