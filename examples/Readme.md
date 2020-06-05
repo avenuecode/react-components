@@ -390,7 +390,7 @@ ___
 **App.jsx**
 ```jsx
 import React, { useState, forwardRef } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import { X } from 'react-feather';
 import { TabSelector } from '../src';
 import Header from '../src/b_Header';
@@ -451,41 +451,54 @@ const menuData = [
       id: 'TIME_PERIOD',
       title: 'Time Period',
       items: [
-        { id: 'TIMESHEETS', path: '/', name: 'Timesheets', icon: <img src={CalendarWeekSVG}/> },
-        { id: 'MON_REPORT', path: '/', name: 'Monthly Report', icon: <img src={CalendarMonthSVG}/> }
+        { id: 'TIMESHEETS', path: '/', icon: <img src={CalendarWeekSVG}/>,
+        linkComponent:<Link to="/">Timesheets</Link>
+        },
+        { id: 'MON_REPORT', path: '/', icon: <img src={CalendarMonthSVG}/>,
+        linkComponent:<Link to="/">Monthly Report</Link>
+        }
         ]
     },
     {
       id: 'REQUESTS',
       title: 'Requests',
       items: [
-        { id: 'REQUESTS', path: '/', name: 'Requests', icon: <img src={MessageRequestSVG}/> },
-        { id: 'VACATION', path: '/', name: 'Vacation', icon: <img src={BriefcaseSVG}/> },
-        { id: 'REIMBURSEMENTS', path: '/', name: 'Reimbursements', icon: <img src={DollarSignSVG}/> }
+        { id: 'REQUESTS', path: '/', icon: <img src={MessageRequestSVG}/>,
+        linkComponent:<Link to="/">Requests</Link> },
+        { id: 'VACATION', path: '/', icon: <img src={BriefcaseSVG}/>,
+        linkComponent:<Link to="/">Vacation</Link> },
+        { id: 'REIMBURSEMENTS', path: '/', icon: <img src={DollarSignSVG}/>,
+        linkComponent:<Link to="/">Reimbursements</Link> }
         ]
     },
     {
       id: 'REPORTS',
       title: 'Reports',
       items: [
-        { id: 'WORK_HOURS', path: '/', name: 'Working Hours', icon: <img src={ClockSVG}/> },
-        { id: 'TS_ACCURACY', path: '/', name: 'Timesheet Accurary', icon: <img src={MessageRequestSVG}/> },
-        { id: 'REQUEST_STS', path: '/', name: 'Requests Status', icon: <img src={CrosshairSVG}/> }
+        { id: 'WORK_HOURS', path: '/work', icon: <img src={ClockSVG}/>,
+        linkComponent:<Link to="/">Working Hours</Link> },
+        { id: 'TS_ACCURACY', path: '/', icon: <img src={MessageRequestSVG}/>,
+        linkComponent:<Link to="/">Timesheet Accurary</Link> },
+        { id: 'REQUEST_STS', path: '/', icon: <img src={CrosshairSVG}/>,
+        linkComponent:<Link to="/">Requests Status</Link> }
         ]
     },
     {
       id: 'HR',
       title: 'Human Resources',
       items: [
-        { id: 'EMPLOYEE_MNG', path: '/', name: 'Emmployee Management', icon: <img src={UsersSVG}/> },
-        { id: 'TMP_LOCATION', path: '/', name: 'Temporary Location', icon: <img src={MapPinSVG}/> }
+        { id: 'EMPLOYEE_MNG', path: '/', icon: <img src={UsersSVG}/>,
+        linkComponent:<Link to="/">Emmployee Management</Link>},
+        { id: 'TMP_LOCATION', path: '/', icon: <img src={MapPinSVG}/>,
+        linkComponent:<Link to="/">Temporary Location</Link> }
       ]
     },
     {
       id: 'FINANCE',
       title: 'Finance',
       items: [
-        { id: 'PAYROLL', path: '/', name: 'Payroll', icon: <img src={DollarSignSVG}/> }
+        { id: 'PAYROLL', path: '/', icon: <img src={DollarSignSVG}/>,
+        linkComponent:<Link to="/">Payroll</Link> }
       ]
     }
   ];
@@ -495,40 +508,46 @@ const App = () => {
   return (
     <>
       <Header
+        classList="mb-5"
+
         title={
           <div>
           <div className="ac-header-title-text">DIGITAL</div>
           <div className="ac-header-title-text">CONTROL</div>
           </div>
           }
-        classList="mb-5" 
+
         logo={
         <img 
           className="ac-header-title-logo" 
           src={AClogoSVG} 
           alt="Avenue Code logo" />
-          }
-          profileLogo="../examples/assets/logo-fanatics.png"
-          profilePicture = "../examples/assets/avatar-pic.png"
-          dotsMenuChildren={
-            <div>
-            <div>Option 1</div>
-            <div>Option 2</div>
-            <div>Option 3</div>
-            <div>Option 4</div>
-            <div>Option 5</div>
-            </div>
-          }
-          notificationContent={
-            <div className="modal-content p-2" style={{width: '60vw'}}>
-            <ExampleTabSelector />
-            </div>
-          }
-          profileContent={
-            <div className="modal-content p-2" style={{width: '60vw'}}>
-            <ExampleTabSelector />
-            </div>
-          }
+        }
+
+        dotsMenuChildren={
+          <div>
+          <div>Option 1</div>
+          <div>Option 2</div>
+          <div>Option 3</div>
+          <div>Option 4</div>
+          <div>Option 5</div>
+          </div>
+        }
+
+        notificationContent={
+          <div className="modal-content p-2" style={{width: '60vw'}}>
+          <ExampleTabSelector />
+          </div>
+        }
+        notificationCount={7}
+
+        profileContent={
+          <div className="modal-content p-2" style={{width: '60vw'}}>
+          <ExampleTabSelector />
+          </div>
+        }
+        profileLogo="../examples/assets/logo-fanatics.png"
+        profilePicture = "../examples/assets/avatar-pic.png"
       />
       <BrowserRouter>
         <SideMenu menuData={menuData}/>

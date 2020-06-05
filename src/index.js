@@ -18,6 +18,7 @@ import { Toaster } from './Toaster';
 import HeaderV2 from './b_Header';
 import HeaderTitleV2 from './b_HeaderTitle';
 import Notification from './b_Notification';
+import SideMenu from './b_SideMenu';
 
 export {
   AlertModal,
@@ -41,5 +42,6 @@ export {
   Toaster,
   HeaderV2,
   HeaderTitleV2,
-  Notification
+  Notification,
+  SideMenu
 };

@@ -1,43 +1,58 @@
 // @flow
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import './style.scss';
 
 type Props = {
   menuData?: list
 };
 
-const SideMenu = (props: Props) => {
-  const { menuData } = props;
+class SideMenu extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
 
-  const [currentItem, setCurrentItem] = useState(menuData[0].items[0].id);
+    this.state = {
+      currentItem: props.menuData[0].items[0].id
+    };
+  }
 
-  return (
-    <div className="ac-side-menu">
-      {menuData.map(category => (
-        <div className="ac-side-menu-category" key={category.id}>
-          <div className="ac-side-menu-category-title">{category.title}</div>
-          {category.items.map(item => (
-            <Link
-              key={item.id}
-              to={item.path}
-              className={`ac-side-menu-item ${
-                currentItem === item.id ? 'active' : ''
-              }`}
-              onClick={() => {
-                setCurrentItem(item.id);
-              }}
-            >
-              {item.icon}
-              <div className="ac-side-menu-item-text">{item.name}</div>
-            </Link>
-          ))}
-        </div>
-      ))}
-      <div className="ac-side-menu-end" />
-    </div>
-  );
-};
+  render() {
+    const { menuData } = this.props;
+
+    return (
+      <div className="ac-side-menu">
+        {menuData.map(category => (
+          <div className="ac-side-menu-category" key={category.id}>
+            <div className="ac-side-menu-category-title">{category.title}</div>
+            {category.items.map(item => (
+              <div
+                onKeyDown={() => {
+                  this.setState({ currentItem: item.id });
+                }}
+                tabIndex={0}
+                role="button"
+                key={item.id}
+                to={item.path}
+                className={`ac-side-menu-item ${
+                  this.state.currentItem === item.id ? 'active' : ''
+                }`}
+                onClick={() => {
+                  this.setState({ currentItem: item.id });
+                }}
+              >
+                {item.icon}
+                <div className="ac-side-menu-item-text">
+                  {item.linkComponent}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+        <div className="ac-side-menu-end" />
+      </div>
+    );
+  }
+}
 
 SideMenu.defaultProps = {
   menuData: [
