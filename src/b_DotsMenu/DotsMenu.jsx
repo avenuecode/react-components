@@ -38,7 +38,7 @@ const DotsMenu = (props: Props) => {
           <div className="ac-dots-menu-square" />
         </div>
       </div>
-      <SimplePopover isOpen={isOpen}>{children}</SimplePopover>
+      <SimplePopover isOpen={isOpen} onClick={handleClick}>{children}</SimplePopover>
     </div>
   );
 };

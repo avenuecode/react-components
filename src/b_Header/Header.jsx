@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu } from 'react-feather';
 import HeaderTitle from '../b_HeaderTitle';
 import DotsMenu from '../b_DotsMenu';
@@ -22,75 +22,92 @@ type Props = {
   onHamburgerMenuClick?: Function,
   dotsMenuChildren: React.Element,
   notificationContent: React.Element,
+  notificationCount: integer,
   profileContent: React.Element
 };
 
-const Header = (props: Props) => {
-  const {
-    title,
-    logo,
-    profileLogo,
-    profilePicture,
-    onHamburgerMenuClick,
-    dotsMenuChildren,
-    notificationContent,
-    profileContent
-  } = props;
+class Header extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
 
-  const [isDotsMenuOpen, setDotsMenuOpen] = useState(false);
-  const [isNotificationsOpen, setNotificationsOpen] = useState(false);
-  const [isProfileOpen, setProfileOpen] = useState(false);
+    this.state = {
+      isDotsMenuOpen: false,
+      isNotificationsOpen: false,
+      isProfileOpen: false
+    };
+  }
 
-  const handleDotsMenuClick = () => setDotsMenuOpen(!isDotsMenuOpen);
+  render() {
+    const {
+      title,
+      logo,
+      profileLogo,
+      profilePicture,
+      onHamburgerMenuClick,
+      dotsMenuChildren,
+      notificationContent,
+      notificationCount,
+      profileContent
+    } = this.props;
 
-  const handleNotificationsClick = () => setNotificationsOpen(!isNotificationsOpen);
-  const handleProfileClick = () => setProfileOpen(!isProfileOpen);
+    const onDotsMenuClick = () => {
+      this.setState(prevState => ({ isDotsMenuOpen: !prevState.isDotsMenuOpen }));
+    };
 
-  return (
-    <div className="ac-header nav-wrapper">
-      <div className="d-flex justify-content-between">
-        <div>
-          {onHamburgerMenuClick && (
-            <Menu
-              className="ac-header-navbar__hamburger-icon navbar-brand feather-24"
-              onClick={onHamburgerMenuClick}
-            />
-          )}
+    const onNotificationClick = () => {
+      this.setState(prevState => ({ isNotificationsOpen: !prevState.isNotificationsOpen }));
+    };
 
-          <HeaderTitle text={title} logo={logo} />
+    const onProfileClick = () => {
+      this.setState(prevState => ({ isProfileOpen: !prevState.isProfileOpen }));
+    };
+
+    return (
+      <div className="ac-header nav-wrapper">
+        <div className="d-flex justify-content-between">
+          <div>
+            {onHamburgerMenuClick && (
+              <Menu
+                className="ac-header-navbar__hamburger-icon navbar-brand feather-24"
+                onClick={onHamburgerMenuClick}
+              />
+            )}
+
+            <HeaderTitle text={title} logo={logo} />
+          </div>
+
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="ac-header-item ac-header-item-menu">
+              <DotsMenu isOpen={this.state.isDotsMenuOpen} handleClick={onDotsMenuClick}>
+                {dotsMenuChildren}
+              </DotsMenu>
+            </div>
+            <div className="ac-header-item ac-header-item-notification">
+              <Notification
+                count={notificationCount}
+                isOpen={this.state.isNotificationsOpen}
+                handleClick={onNotificationClick}
+              >
+                {notificationContent}
+              </Notification>
+            </div>
+            <div className="ac-header-item ac-header-item-profile">
+              <ProfileBadge
+                logo={profileLogo}
+                picture={profilePicture}
+                isOpen={this.state.isProfileOpen}
+                handleClick={onProfileClick}
+              >
+                {profileContent}
+              </ProfileBadge>
+            </div>
+          </div>
         </div>
-
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="ac-header-item ac-header-item-menu">
-            <DotsMenu isOpen={isDotsMenuOpen} handleClick={handleDotsMenuClick}>
-              {dotsMenuChildren}
-            </DotsMenu>
-          </div>
-          <div className="ac-header-item ac-header-item-notification">
-            <Notification
-              count={5}
-              isOpen={isNotificationsOpen}
-              handleClick={handleNotificationsClick}
-            >
-              {notificationContent}
-            </Notification>
-          </div>
-          <div className="ac-header-item ac-header-item-profile">
-            <ProfileBadge
-              logo={profileLogo}
-              picture={profilePicture}
-              isOpen={isProfileOpen}
-              handleClick={handleProfileClick}
-            >
-              {profileContent}
-            </ProfileBadge>
-          </div>
-        </div>
+        <div className="ac-header-division" />
       </div>
-      <div className="ac-header-division" />
-    </div>
-  );
-};
+    );
+  }
+}
 
 Header.defaultProps = {
   logo: null,
