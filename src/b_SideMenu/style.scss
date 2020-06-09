@@ -51,6 +51,15 @@
       font-weight: 600;
       line-height: 21px;
       color: #8a8a8a; // map-get($colors, 'urban-gray-dark')
+
+      &-active {
+        padding: 8px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 21px;
+        color: #0061a2; // map-get($colors, 'brand-blue-darker')
+      }
     }
   }
 

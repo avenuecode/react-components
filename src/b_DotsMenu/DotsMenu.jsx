@@ -7,11 +7,17 @@ type Props = {
   /** Content displayed in popover when it's open */
   children: React.Element,
   handleClick: Function,
+  closeDotMenu: Function,
   isOpen: boolean
 };
 
 const DotsMenu = (props: Props) => {
-  const { children, handleClick, isOpen } = props;
+  const {
+    children,
+    handleClick,
+    closeDotMenu,
+    isOpen
+  } = props;
 
   return (
     <div className="ac-dots-menu">
@@ -38,7 +44,13 @@ const DotsMenu = (props: Props) => {
           <div className="ac-dots-menu-square" />
         </div>
       </div>
-      <SimplePopover isOpen={isOpen} onClick={handleClick}>{children}</SimplePopover>
+      <SimplePopover
+        isOpen={isOpen}
+        onClick={handleClick}
+        closeDotMenu={closeDotMenu}
+      >
+        {children}
+      </SimplePopover>
     </div>
   );
 };

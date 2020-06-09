@@ -41,9 +41,7 @@ class SideMenu extends React.Component<Props> {
                 }}
               >
                 {item.icon}
-                <div className="ac-side-menu-item-text">
-                  {item.linkComponent}
-                </div>
+                {item.linkComponent}
               </div>
             ))}
           </div>

@@ -54,6 +54,10 @@ class Header extends React.Component<Props> {
       this.setState(prevState => ({ isDotsMenuOpen: !prevState.isDotsMenuOpen }));
     };
 
+    const closeDotMenu = () => {
+      this.setState({ isDotsMenuOpen: false });
+    };
+
     const onNotificationClick = () => {
       this.setState(prevState => ({ isNotificationsOpen: !prevState.isNotificationsOpen }));
     };
@@ -78,7 +82,11 @@ class Header extends React.Component<Props> {
 
           <div className="d-flex justify-content-between align-items-center">
             <div className="ac-header-item ac-header-item-menu">
-              <DotsMenu isOpen={this.state.isDotsMenuOpen} handleClick={onDotsMenuClick}>
+              <DotsMenu
+                isOpen={this.state.isDotsMenuOpen}
+                handleClick={onDotsMenuClick}
+                closeDotMenu={closeDotMenu}
+              >
                 {dotsMenuChildren}
               </DotsMenu>
             </div>

@@ -452,10 +452,10 @@ const menuData = [
       title: 'Time Period',
       items: [
         { id: 'TIMESHEETS', path: '/', icon: <img src={CalendarWeekSVG}/>,
-        linkComponent:<Link to="/">Timesheets</Link>
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Timesheets</Link>
         },
         { id: 'MON_REPORT', path: '/', icon: <img src={CalendarMonthSVG}/>,
-        linkComponent:<Link to="/">Monthly Report</Link>
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Monthly Report</Link>
         }
         ]
     },
@@ -464,11 +464,11 @@ const menuData = [
       title: 'Requests',
       items: [
         { id: 'REQUESTS', path: '/', icon: <img src={MessageRequestSVG}/>,
-        linkComponent:<Link to="/">Requests</Link> },
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Requests</Link> },
         { id: 'VACATION', path: '/', icon: <img src={BriefcaseSVG}/>,
-        linkComponent:<Link to="/">Vacation</Link> },
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Vacation</Link> },
         { id: 'REIMBURSEMENTS', path: '/', icon: <img src={DollarSignSVG}/>,
-        linkComponent:<Link to="/">Reimbursements</Link> }
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Reimbursements</Link> }
         ]
     },
     {
@@ -476,11 +476,11 @@ const menuData = [
       title: 'Reports',
       items: [
         { id: 'WORK_HOURS', path: '/work', icon: <img src={ClockSVG}/>,
-        linkComponent:<Link to="/">Working Hours</Link> },
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Working Hours</Link> },
         { id: 'TS_ACCURACY', path: '/', icon: <img src={MessageRequestSVG}/>,
-        linkComponent:<Link to="/">Timesheet Accurary</Link> },
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Timesheet Accurary</Link> },
         { id: 'REQUEST_STS', path: '/', icon: <img src={CrosshairSVG}/>,
-        linkComponent:<Link to="/">Requests Status</Link> }
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Requests Status</Link> }
         ]
     },
     {
@@ -488,9 +488,9 @@ const menuData = [
       title: 'Human Resources',
       items: [
         { id: 'EMPLOYEE_MNG', path: '/', icon: <img src={UsersSVG}/>,
-        linkComponent:<Link to="/">Emmployee Management</Link>},
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Emmployee Management</Link>},
         { id: 'TMP_LOCATION', path: '/', icon: <img src={MapPinSVG}/>,
-        linkComponent:<Link to="/">Temporary Location</Link> }
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Temporary Location</Link> }
       ]
     },
     {
@@ -498,7 +498,7 @@ const menuData = [
       title: 'Finance',
       items: [
         { id: 'PAYROLL', path: '/', icon: <img src={DollarSignSVG}/>,
-        linkComponent:<Link to="/">Payroll</Link> }
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Payroll</Link> }
       ]
     }
   ];
@@ -525,13 +525,52 @@ const App = () => {
         }
 
         dotsMenuChildren={
-          <div>
-          <div>Option 1</div>
-          <div>Option 2</div>
-          <div>Option 3</div>
-          <div>Option 4</div>
-          <div>Option 5</div>
-          </div>
+          <BrowserRouter>
+            <div className="d-flex flex-column justify-content-space-around align-items-space-around">
+              <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+              <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+                            <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+            </div>
+          </BrowserRouter>
         }
 
         notificationContent={
