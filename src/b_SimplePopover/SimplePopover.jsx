@@ -6,25 +6,52 @@ type Props = {
   /** Content displayed in popover when it's open */
   children: React.Element,
   isOpen?: boolean,
-  onClick: Function
+  onClick: Function,
+  closeDotMenu: Function,
 };
 
-const SimplePopover = (props: Props) => {
-  const { isOpen, children, onClick } = props;
+class SimplePopover extends React.Component <Props> {
+  constructor(props: Props) {
+    super(props);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
 
-  return (
-    <div
-      className="ac-simple-popover"
-      hidden={!isOpen}
-      onClick={onClick}
-      onKeyDown={onClick}
-      role="button"
-      tabIndex={0}
-    >
-      {children}
-    </div>
-  );
-};
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.props.closeDotMenu();
+    }
+  }
+
+  render() {
+    const { isOpen, children, onClick } = this.props;
+    return (
+      <div
+        ref={this.setWrapperRef}
+        className="ac-simple-popover"
+        hidden={!isOpen}
+        onClick={onClick}
+        onKeyDown={onClick}
+        role="button"
+        tabIndex={0}
+      >
+        {children}
+      </div>
+    );
+  }
+}
 
 SimplePopover.defaultProps = {
   isOpen: false
