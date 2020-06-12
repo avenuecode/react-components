@@ -17,12 +17,12 @@
       font-style: normal;
       font-weight: 900;
       line-height: 10px;
-      color: map-get($colors, 'blue-darker');
+      color: $brand-blue-darker;
     }
   }
   &-division {
     height: 1px;
-    background: map-get($colors, 'urban-gray-light');
+    background: $urban-gray-light;
   }
 }
 

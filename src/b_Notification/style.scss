@@ -27,10 +27,10 @@
     font-style: normal;
     font-weight: $font-weight-black;
     line-height: 10px;
-    color: map-get($colors, 'white');
+    color: $white;
 
-    background: map-get($colors, 'red');
-    border: 1px solid map-get($colors, 'white');
+    background: $red;
+    border: 1px solid $white;
     border-radius: 16px;
   }
 }
