@@ -10,7 +10,7 @@
 
   &-square {
     box-sizing: border-box;
-    border: 1px solid #464646; // map-get($colors, 'urban-gray-darker')
+    border: 1px solid map-get($colors, 'urban-gray-darker');
     border-radius: 0;
   }
 }

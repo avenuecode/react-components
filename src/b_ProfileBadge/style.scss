@@ -8,7 +8,7 @@
   height: 32px;
   padding: 0 4px;
   overflow: hidden;
-  background: #f3f3f3; // map-get($colors, 'urban-gray-lighter')
+  background: map-get($colors, 'urban-gray-lighter');
   border-radius: 8px;
 
   &__logo {

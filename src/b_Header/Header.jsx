@@ -20,9 +20,13 @@ type Props = {
    * controls the open/close state of the popover. */
   /** Callback function for when hamburger menu icon is clicked. */
   onHamburgerMenuClick?: Function,
+  /** Elements to be rendered inside dots-menu popover. */
   dotsMenuChildren: React.Element,
+  /** Elements to be rendered inside notification modal. */
   notificationContent: React.Element,
+  /** Number of notifications */
   notificationCount: integer,
+  /** Elements to be rendered inside profile modal. */
   profileContent: React.Element
 };
 

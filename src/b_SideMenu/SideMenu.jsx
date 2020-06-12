@@ -1,9 +1,15 @@
 // @flow
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './style.scss';
 
 type Props = {
+  /** List of elements to be rendered inside menu. Those must have the following structure:
+      {
+      title: Category Title,
+      items: List of items inside category:
+        { id: Item Id, path: Router Path, name: Item Display Name }
+      }
+   */
   menuData?: list
 };
 

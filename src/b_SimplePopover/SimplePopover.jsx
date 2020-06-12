@@ -5,8 +5,11 @@ import './style.scss';
 type Props = {
   /** Content displayed in popover when it's open */
   children: React.Element,
+  /** Boolean parameter to hide or show component */
   isOpen?: boolean,
+  /** Callback function called when component is clicked */
   onClick: Function,
+  /** Callback function called when component should be closed (clicked outside of it) */
   closeDotMenu: Function,
 };
 

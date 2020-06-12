@@ -4,10 +4,15 @@ import Modal from '../Modal';
 import './style.scss';
 
 type Props = {
+  /** Source uri of the logo image */
   logo: string,
+  /** Source uri of the user image */
   picture: string,
+  /** Content to be rendered inside modal */
   children: React.Element,
+  /** Parameter to show or hide modal */
   isOpen: boolean,
+  /** Callback function called when component is clicked */
   handleClick: Function
 };
 

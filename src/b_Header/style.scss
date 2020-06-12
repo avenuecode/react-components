@@ -22,7 +22,7 @@
   }
   &-division {
     height: 1px;
-    background: #e4e4e4; // map-get($colors, 'urban-gray-light')
+    background: map-get($colors, 'urban-gray-light');
   }
 }
 
