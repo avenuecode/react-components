@@ -1,0 +1,36 @@
+@import '~@ac-ui/design-system/src/base';
+
+.ac-notification {
+  position: relative;
+  width: 32px;
+  height: 32px;
+
+  &__symbol {
+    position: relative;
+    top: 5px;
+    left: 5px;
+  }
+
+  &__counter {
+    position: absolute;
+    top: 1px;
+    right: 4px;
+
+    z-index: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 4px;
+
+    font-size: 10px;
+    font-style: normal;
+    font-weight: $font-weight-black;
+    line-height: 10px;
+    color: map-get($colors, 'white');
+
+    background: map-get($colors, 'red');
+    border: 1px solid map-get($colors, 'white');
+    border-radius: 16px;
+  }
+}

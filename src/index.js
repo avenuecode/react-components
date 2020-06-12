@@ -15,6 +15,11 @@ import TabSelector from './TabSelector';
 import Table, { TableHeader, TableBody, TableRow } from './Table';
 import { Toaster } from './Toaster';
 
+import HeaderV2 from './b_Header';
+import HeaderTitleV2 from './b_HeaderTitle';
+import Notification from './b_Notification';
+import SideMenu from './b_SideMenu';
+
 export {
   AlertModal,
   AlternatingText,
@@ -34,5 +39,9 @@ export {
   TableHeader,
   TableBody,
   TableRow,
-  Toaster
+  Toaster,
+  HeaderV2,
+  HeaderTitleV2,
+  Notification,
+  SideMenu
 };

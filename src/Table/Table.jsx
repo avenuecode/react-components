@@ -31,7 +31,7 @@ const Table = (props: Props) => {
   } = props;
 
   return (
-    <table className={classNames('ac-table table table-bordered table-hover', classList)} {...rest}>
+    <table className={classNames('ac-table table table-hover', classList)} {...rest}>
       <caption>{caption}</caption>
       <TableHeader headerNames={headerNames} CustomTableHeader={CustomTableHeader} />
       <TableBody tableData={tableData} CustomTableBody={CustomTableBody} />

@@ -366,3 +366,234 @@ const App = () => {
 
 <App />
 ```
+
+
+___
+#### **New Version Preview**
+Features:
+  * Alert modal with warning dialog if fields are empty when `submit` is clicked
+  * Loading bar becomes active when form is correctly submitted (i.e. complete all fields and then click `submit`)
+  * When loading is active, you can stop it by clicking on `cancel`
+___
+**styles.scss**
+```scss
+@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@ac-ui/design-system/src/bridge/grid';    // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
+@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
+@import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+
+```
+
+**App.jsx**
+```jsx
+import React, { useState, forwardRef } from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { X } from 'react-feather';
+import { TabSelector } from '../src';
+import Header from '../src/b_Header';
+import SideMenu from '../src/b_SideMenu';
+
+import AClogoSVG from './assets/logo-avenue-code.svg';
+import CalendarWeekSVG from './assets/calendar-week.svg';
+import CalendarMonthSVG from './assets/calendar-month.svg';
+import MessageRequestSVG from './assets/message-request.svg';
+import BriefcaseSVG from './assets/briefcase.svg';
+import DollarSignSVG from './assets/dollar-sign.svg';
+import ClockSVG from './assets/clock.svg';
+import CrosshairSVG from './assets/crosshair.svg';
+import UsersSVG from './assets/users.svg';
+import MapPinSVG from './assets/map-pin.svg';
+
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'New',
+      label: 'New'
+    },
+    {
+      id: 'Archived',
+      label: 'Archived'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <div
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </div>
+  ));
+
+  return (
+        <div className="page-wrapper container d-flex flex-column" style={{width: '60vw'}}>
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <h2 className="text-capitalize font-weight-black no-selec">
+              Notifications
+            </h2>
+            <TabSelector tabItems={tabItems} />
+          </div>
+          <hr className="my-4" />
+        </div>
+  );
+};
+
+const menuData = [
+    {
+      id: 'TIME_PERIOD',
+      title: 'Time Period',
+      items: [
+        { id: 'TIMESHEETS', path: '/', icon: <img src={CalendarWeekSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Timesheets</Link>
+        },
+        { id: 'MON_REPORT', path: '/', icon: <img src={CalendarMonthSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Monthly Report</Link>
+        }
+        ]
+    },
+    {
+      id: 'REQUESTS',
+      title: 'Requests',
+      items: [
+        { id: 'REQUESTS', path: '/', icon: <img src={MessageRequestSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Requests</Link> },
+        { id: 'VACATION', path: '/', icon: <img src={BriefcaseSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Vacation</Link> },
+        { id: 'REIMBURSEMENTS', path: '/', icon: <img src={DollarSignSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Reimbursements</Link> }
+        ]
+    },
+    {
+      id: 'REPORTS',
+      title: 'Reports',
+      items: [
+        { id: 'WORK_HOURS', path: '/work', icon: <img src={ClockSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Working Hours</Link> },
+        { id: 'TS_ACCURACY', path: '/', icon: <img src={MessageRequestSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Timesheet Accurary</Link> },
+        { id: 'REQUEST_STS', path: '/', icon: <img src={CrosshairSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Requests Status</Link> }
+        ]
+    },
+    {
+      id: 'HR',
+      title: 'Human Resources',
+      items: [
+        { id: 'EMPLOYEE_MNG', path: '/', icon: <img src={UsersSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Emmployee Management</Link>},
+        { id: 'TMP_LOCATION', path: '/', icon: <img src={MapPinSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Temporary Location</Link> }
+      ]
+    },
+    {
+      id: 'FINANCE',
+      title: 'Finance',
+      items: [
+        { id: 'PAYROLL', path: '/', icon: <img src={DollarSignSVG}/>,
+        linkComponent:<Link className="ac-side-menu-item-text" to="/">Payroll</Link> }
+      ]
+    }
+  ];
+
+const App = () => {
+
+  return (
+    <>
+      <Header
+        classList="mb-5"
+
+        title={
+          <div>
+          <div className="ac-header-title-text">DIGITAL</div>
+          <div className="ac-header-title-text">CONTROL</div>
+          </div>
+          }
+
+        logo={
+        <img 
+          className="ac-header-title-logo" 
+          src={AClogoSVG} 
+          alt="Avenue Code logo" />
+        }
+
+        dotsMenuChildren={
+          <BrowserRouter>
+            <div className="d-flex flex-column justify-content-space-around align-items-space-around">
+              <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+              <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+                            <div className="d-flex flex-row justify-content-space-around">
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+                <Link className="p-3" to="/">
+                  <img src={CalendarWeekSVG}/>
+                  <div>Option</div>
+                </Link>
+              </div>
+            </div>
+          </BrowserRouter>
+        }
+
+        notificationContent={
+          <div className="modal-content p-2" style={{width: '60vw'}}>
+          <ExampleTabSelector />
+          </div>
+        }
+        notificationCount={7}
+
+        profileContent={
+          <div className="modal-content p-2" style={{width: '60vw'}}>
+          <ExampleTabSelector />
+          </div>
+        }
+        profileLogo="../examples/assets/logo-fanatics.png"
+        profilePicture = "../examples/assets/avatar-pic.png"
+      />
+      <BrowserRouter>
+        <SideMenu menuData={menuData}/>
+      </BrowserRouter>
+    </>
+  )
+}
+
+<App />
+```

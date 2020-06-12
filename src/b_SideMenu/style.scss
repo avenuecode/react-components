@@ -1,0 +1,75 @@
+@import '~@ac-ui/design-system/src/base';
+
+.ac-side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 224px; // should adjust with itens size
+  height: 100vh;
+  padding: 24px 16px;
+
+  background: #fff;
+
+  border-right: 1px solid map-get($colors, 'urban-gray-light');
+
+  &-category {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    padding-top: 16px;
+
+    &-title {
+      display: flex;
+      align-items: center;
+
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 15px;
+      color: map-get($colors, 'urban-gray');
+      text-transform: uppercase;
+    }
+  }
+  &-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    padding-left: 8px;
+    border-radius: 8px;
+
+    &-text {
+      padding: 8px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 21px;
+      color: map-get($colors, 'urban-gray-dark');
+
+      &-active {
+        padding: 8px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 21px;
+        color: map-get($colors, 'brand-blue-darker');
+      }
+    }
+  }
+
+  &-end {
+    width: 100%;
+    height: 1px;
+    background-color: map-get($colors, 'urban-gray-light');
+  }
+}
+
+.active {
+  background: rgba(164, 200, 255, 0.5);
+}

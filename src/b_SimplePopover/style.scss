@@ -1,0 +1,16 @@
+@import '~@ac-ui/design-system/src/base';
+
+.ac-simple-popover {
+  position: absolute;
+  z-index: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 200px;
+  padding: 6px 10px;
+  background: #fff;
+
+  border: 1px solid map-get($colors, 'urban-gray-light');
+  border-radius: 10px;
+}
