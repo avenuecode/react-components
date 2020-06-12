@@ -34,7 +34,7 @@
     "component:stub": "./node_modules/.bin/copyfiles -a -V --up 2 ./templates/Component/* ./src/Component.scratch/"
   },
   "dependencies": {
-    "@ac-ui/design-system": "^2.0.0",
+    "@ac-ui/design-system": "^2.0.1",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
