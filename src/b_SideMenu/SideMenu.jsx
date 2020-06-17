@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
@@ -10,7 +11,8 @@ type Props = {
         { id: Item Id, path: Router Path, name: Item Display Name }
       }
    */
-  menuData?: list
+  menuData?: list,
+  classList?: string | Array<string>
 };
 
 class SideMenu extends React.Component<Props> {
@@ -23,10 +25,10 @@ class SideMenu extends React.Component<Props> {
   }
 
   render() {
-    const { menuData } = this.props;
+    const { menuData, classList } = this.props;
 
     return (
-      <div className="ac-side-menu">
+      <div className={classNames('ac-side-menu', classList)}>
         {menuData.map(category => (
           <div className="ac-side-menu-category" key={category.id}>
             <div className="ac-side-menu-category-title">{category.title}</div>
