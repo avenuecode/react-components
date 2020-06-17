@@ -41,7 +41,7 @@ class SideMenu extends React.Component<Props> {
                 role="button"
                 key={item.id}
                 to={item.path}
-                className={classNames(`ac-side-menu-item ${
+                classNames(['ac-side-menu-item', {'active': this.state.currentItem === item.id}, classList])
                   this.state.currentItem === item.id ? 'active' : ''
                 }`,classList)}
                 onClick={() => {
