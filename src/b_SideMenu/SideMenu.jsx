@@ -30,8 +30,8 @@ class SideMenu extends React.Component<Props> {
     return (
       <div className={classNames('ac-side-menu', classList)}>
         {menuData.map(category => (
-          <div className="ac-side-menu-category" key={category.id}>
-            <div className="ac-side-menu-category-title">{category.title}</div>
+          <div className={classNames('ac-side-menu-category', classList)} key={category.id}>
+            <div className={classNames('ac-side-menu-category-title', classList)}>{category.title}</div>
             {category.items.map(item => (
               <div
                 onKeyDown={() => {
@@ -41,9 +41,9 @@ class SideMenu extends React.Component<Props> {
                 role="button"
                 key={item.id}
                 to={item.path}
-                className={`ac-side-menu-item ${
+                className={classNames(`ac-side-menu-item ${
                   this.state.currentItem === item.id ? 'active' : ''
-                }`}
+                }`,classList)}
                 onClick={() => {
                   this.setState({ currentItem: item.id });
                 }}
@@ -54,7 +54,7 @@ class SideMenu extends React.Component<Props> {
             ))}
           </div>
         ))}
-        <div className="ac-side-menu-end" />
+        <div className={classNames('ac-side-menu-end', classList)} />
       </div>
     );
   }
