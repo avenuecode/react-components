@@ -27,7 +27,9 @@ type Props = {
   /** Number of notifications */
   notificationCount: integer,
   /** Elements to be rendered inside profile modal. */
-  profileContent: React.Element
+  profileContent: React.Element,
+  /** Controls whether profile content will be popover instead of modal */
+  isProfilePopover?: boolean,
 };
 
 class Header extends React.Component<Props> {
@@ -51,7 +53,8 @@ class Header extends React.Component<Props> {
       dotsMenuChildren,
       notificationContent,
       notificationCount,
-      profileContent
+      profileContent,
+      isProfilePopover,
     } = this.props;
 
     const onDotsMenuClick = () => {
@@ -109,6 +112,7 @@ class Header extends React.Component<Props> {
                 picture={profilePicture}
                 isOpen={this.state.isProfileOpen}
                 handleClick={onProfileClick}
+                isPopover={isProfilePopover}
               >
                 {profileContent}
               </ProfileBadge>
@@ -125,7 +129,8 @@ Header.defaultProps = {
   logo: null,
   profileLogo: null,
   profilePicture: null,
-  onHamburgerMenuClick: null
+  onHamburgerMenuClick: null,
+  isProfilePopover: false,
 };
 
 Header.displayName = 'Header (beta)';
