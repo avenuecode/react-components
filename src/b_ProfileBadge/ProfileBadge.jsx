@@ -51,15 +51,17 @@ const ProfileBadge = (props: Props) => {
 
   if (isPopover) {
     return (
-      <MenuPopover
-        isOpen={isOpen}
-        contentLabel="Profile"
-        onClose={isOpen ? handleClick : () => {}}
-        alignment="right"
-        toggle={buttonToggle}
-      >
-        {children}
-      </MenuPopover>
+      <div>
+        <MenuPopover
+          isOpen={isOpen}
+          classList="ac-profile-badge__popover"
+          onClose={isOpen ? handleClick : () => {}}
+          alignment="right"
+          toggle={buttonToggle}
+        >
+          {children}
+        </MenuPopover>
+      </div>
     );
   }
 
