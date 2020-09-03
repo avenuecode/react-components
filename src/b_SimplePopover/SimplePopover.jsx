@@ -33,7 +33,10 @@ class SimplePopover extends React.Component <Props> {
   }
 
   handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+    if (this.props.isOpen
+      && this.wrapperRef
+      && !this.wrapperRef.contains(event.target)
+    ) {
       this.props.closeDotMenu();
     }
   }
