@@ -11,52 +11,42 @@ type Props = {
         { id: Item Id, path: Router Path, name: Item Display Name }
       }
    */
-  menuData?: list,
-  classList?: string | Array<string>
+  menuData?: any[],
+  classList?: string | Array<string>,
+  currentItem: String,
+  setCurrentItem: (id: string) => void,
 };
 
-class SideMenu extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      currentItem: props.menuData[0].items[0].id
-    };
-  }
-
-  render() {
-    const { menuData, classList } = this.props;
-
-    return (
-      <div className={classNames('ac-side-menu', classList)}>
-        {menuData.map(category => (
-          <div className={classNames('ac-side-menu-category', classList)} key={category.id}>
-            <div className={classNames('ac-side-menu-category-title', classList)}>{category.title}</div>
-            {category.items.map(item => (
-              <div
-                onKeyDown={() => {
-                  this.setState({ currentItem: item.id });
-                }}
-                tabIndex={0}
-                role="button"
-                key={item.id}
-                to={item.path}
-                className={classNames('ac-side-menu-item',{'active': this.state.currentItem === item.id }, classList)}
-                onClick={() => {
-                  this.setState({ currentItem: item.id });
-                }}
-              >
-                {item.icon}
-                {item.linkComponent}
-              </div>
-            ))}
+const SideMenu = ({
+  menuData, classList, setCurrentItem, currentItem
+}: Props) => (
+  <div className={classNames('ac-side-menu', classList)}>
+    {menuData.map(category => (
+      <div className={classNames('ac-side-menu-category', classList)} key={category.id}>
+        <div className={classNames('ac-side-menu-category-title', classList)}>{category.title}</div>
+        {category.items.map(item => (
+          <div
+            onKeyDown={() => {
+              setCurrentItem(item.id);
+            }}
+            tabIndex={0}
+            role="button"
+            key={item.id}
+            to={item.path}
+            className={classNames('ac-side-menu-item', { active: currentItem === item.id }, classList)}
+            onClick={() => {
+              setCurrentItem(item.id);
+            }}
+          >
+            {item.icon}
+            {item.linkComponent}
           </div>
         ))}
-        <div className={classNames('ac-side-menu-end', classList)} />
       </div>
-    );
-  }
-}
+    ))}
+    <div className={classNames('ac-side-menu-end', classList)} />
+  </div>
+);
 
 SideMenu.defaultProps = {
   menuData: [
@@ -64,7 +54,8 @@ SideMenu.defaultProps = {
       title: 'No categories',
       items: [{ id: 'NO_ITEM', path: '', name: 'No Items' }]
     }
-  ]
+  ],
+  classList: [],
 };
 
 SideMenu.displayName = 'SideMenu (beta)';
