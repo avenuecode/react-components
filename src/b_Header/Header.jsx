@@ -30,6 +30,10 @@ type Props = {
   profileContent: React.Element,
   /** Controls whether profile content will be popover instead of modal */
   isProfilePopover?: boolean,
+  /**
+   * Custom Header Items React Components to be rendered along side with preexisting Header Items
+   */
+  headerItems?: Array<React.Element>
 };
 
 class Header extends React.Component<Props> {
@@ -55,6 +59,7 @@ class Header extends React.Component<Props> {
       notificationCount,
       profileContent,
       isProfilePopover,
+      headerItems
     } = this.props;
 
     const onDotsMenuClick = () => {
@@ -106,6 +111,11 @@ class Header extends React.Component<Props> {
                 {notificationContent}
               </Notification>
             </div>
+            {headerItems?.map(headerItemComponent => (
+              <div className="ac-header-item ac-header-item-action">
+                {headerItemComponent}
+              </div>
+            ))}
             <div className="ac-header-item ac-header-item-profile">
               <ProfileBadge
                 logo={profileLogo}
@@ -131,6 +141,7 @@ Header.defaultProps = {
   profilePicture: null,
   onHamburgerMenuClick: null,
   isProfilePopover: false,
+  headerItems: []
 };
 
 Header.displayName = 'Header (beta)';
