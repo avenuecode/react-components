@@ -12,12 +12,12 @@ There are a few additional points to keep in mind when using TabSelector:
 
 ---
 
-This component uses `Bootstrap nav` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+This component uses `Bootstrap nav` classes in addition to `Avenue Eco` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
 
 ```scss
-@import '~@ac-ui/design-system/src/base';
-@import '~@ac-ui/design-system/src/bridge/nav';
+@import '~@avenueeco/design-system/src/base';
+@import '~@avenueeco/design-system/src/bridge/nav';
 ```
 
 ---

@@ -10,10 +10,10 @@ Close button is optional but also closes the toaster
 ___
 #### **How do I style this component?**
 ___
-This component uses `ac-ui` theme styles.
-To apply default styles, import `ac-ui` theme style:
+This component uses `Avenue Eco` theme styles.
+To apply default styles, import `Avenue Eco` theme style:
 ```scss
-@import "~@ac-ui/design-system/src/theme";
+@import "~@avenueeco/design-system/src/theme";
 ```
   
 Thereafter, you can pass in Bootstrap classnames via the `classNames` prop such as `bg-success`,

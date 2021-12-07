@@ -6,15 +6,15 @@ This component is a custom wrapper around `react-modal` with preset configuratio
 ___
 #### **How do I style this component?**
 ___
-This component uses `Bootstrap modal` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+This component uses `Bootstrap modal` classes in addition to `Avenue Eco` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
 ```scss
-@import "~@ac-ui/design-system/src/bridge/modal";
+@import "~@avenueeco/design-system/src/bridge/modal";
 ```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 
-**Don't see the import for `ac-ui` base styles?**  
+**Don't see the import for `Avenue Eco` base styles?**  
 That's because they're already included when importing `bridge`, no need to duplicate import!
 
 ___
