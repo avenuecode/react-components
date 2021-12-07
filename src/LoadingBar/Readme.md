@@ -4,10 +4,10 @@ The loading animation is activated when `isLoading` is set to `true`.
 ___
 #### **How do I style this component?**
 ___
-This component uses `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
-To apply default styles, import `ac-ui` base style:
+This component uses `Avenue Eco` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply default styles, import `Avenue Eco` base style:
 ```scss
-@import "~@ac-ui/design-system/src/base";
+@import "~@avenueeco/design-system/src/base";
 ```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.

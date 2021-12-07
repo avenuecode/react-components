@@ -1,15 +1,18 @@
 import React from 'react';
+import classNames from 'classnames';
 import './TabSelector.scss';
 
 type Props = {
   /** Array of React Component to load the `nav-items` inside `nav-tabs` element */
   tabItems: Array<React.Component>,
   /** Boolean to show or not the animation of tab transition. */
-  hasTabTransitionAnimation?: Boolean
+  hasTabTransitionAnimation?: Boolean,
+  /** The desired variant: "engage" "ligth" */
+  variant?: 'engage' | 'expand' | 'exceed' | undefined,
 };
 
 const TabSelector = (props: Props) => {
-  const { tabItems, hasTabTransitionAnimation } = props;
+  const { tabItems, hasTabTransitionAnimation, variant } = props;
   const hasTabItems = tabItems && tabItems.length > 0;
   let tabAnimationStyle = {};
 
@@ -31,15 +34,31 @@ const TabSelector = (props: Props) => {
     };
   }
 
+  const getVariant = () => {
+    switch (variant) {
+      case 'engage':
+        return 'nav-tabs-engage';
+
+      case 'exceed':
+        return 'nav-tabs-exceed';
+
+      case 'expand':
+        return 'nav-tabs-expand';
+
+      default:
+        return 'nav-tabs';
+    }
+  };
+
   return (
     <div
-      className="ac-tab-selector nav nav-tabs position-relative d-flex justify-content-end"
+      className={classNames('ac-tab-selector', 'nav', 'position-relative', 'd-flex', 'justify-content-end', getVariant())}
       role="tablist"
     >
       {hasTabItems
         && tabItems.map(tabItem => (
           <div
-            className="nav-item text-center text-uppercase font-weight-bold"
+            className="nav-item text-center text-uppercase"
             key={tabItem.key}
           >
             {tabItem}
@@ -54,7 +73,8 @@ const TabSelector = (props: Props) => {
 };
 
 TabSelector.defaultProps = {
-  hasTabTransitionAnimation: true
+  hasTabTransitionAnimation: true,
+  variant: undefined
 };
 
 export default TabSelector;

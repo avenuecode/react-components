@@ -1,7 +1,14 @@
-@import '~@ac-ui/design-system/src/base';
+@import '~@avenueeco/design-system/src/base';
+@import '~@avenueeco/design-system/src/bridge/nav';
 
 .ac-tab-selector {
   .nav-item {
-    width: ($spacer * 24);
+    min-width: ($spacer * 24);
+  }
+
+  &.nav-tabs-expand {
+    .nav-item {
+      min-width: ($spacer * 18);
+    }
   }
 }

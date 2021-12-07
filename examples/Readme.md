@@ -7,11 +7,11 @@ Features:
 ___
 **styles.scss**
 ```scss
-@import '~@ac-ui/design-system/src/page';                 // Imports Bootstrap utility classes
-@import '~@ac-ui/design-system/src/bridge/grid';          // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/buttons';       // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/dropdown";      // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/button-group";  // Imports ac-ui base styles
+@import '~@avenueeco/design-system/src/page';                 // Imports Bootstrap utility classes
+@import '~@avenueeco/design-system/src/bridge/grid';          // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/buttons';       // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/dropdown";      // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/button-group";  // Imports Avenue Eco base styles
 ```
 
 **App.jsx**
@@ -88,11 +88,11 @@ ___
 ___
 **styles.scss**
 ```scss
-@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
-@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
-`@import "~@ac-ui/design-system/src/bridge/tables"` // Imports ac-ui base styles
+@import '~@avenueeco/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@avenueeco/design-system/src/bridge/forms';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/modal';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/buttons'; // Imports Avenue Eco base styles
+`@import "~@avenueeco/design-system/src/bridge/tables"` // Imports Avenue Eco base styles
 ```
 
 **App.jsx**
@@ -179,13 +179,13 @@ Features:
 ___
 **styles.scss**
 ```scss
-@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
-@import '~@ac-ui/design-system/src/bridge/grid';    // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+@import '~@avenueeco/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@avenueeco/design-system/src/bridge/grid';    // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/forms';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/modal';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/buttons'; // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/navbar";  // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/nav";     // Imports Avenue Eco base styles
 ```
 
 **App.jsx**
@@ -377,13 +377,13 @@ Features:
 ___
 **styles.scss**
 ```scss
-@import '~@ac-ui/design-system/src/page';           // Imports Bootstrap utility classes
-@import '~@ac-ui/design-system/src/bridge/grid';    // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/forms';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/modal';   // Imports ac-ui base styles
-@import '~@ac-ui/design-system/src/bridge/buttons'; // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/navbar";  // Imports ac-ui base styles
-@import "~@ac-ui/design-system/src/bridge/nav";     // Imports ac-ui base styles
+@import '~@avenueeco/design-system/src/page';           // Imports Bootstrap utility classes
+@import '~@avenueeco/design-system/src/bridge/grid';    // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/forms';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/modal';   // Imports Avenue Eco base styles
+@import '~@avenueeco/design-system/src/bridge/buttons'; // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/navbar";  // Imports Avenue Eco base styles
+@import "~@avenueeco/design-system/src/bridge/nav";     // Imports Avenue Eco base styles
 
 ```
 

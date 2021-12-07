@@ -1,4 +1,4 @@
-@import '~@ac-ui/design-system/src/base';
+@import '~@avenueeco/design-system/src/base';
 
 .ac-side-menu {
   display: flex;
@@ -68,8 +68,7 @@
     height: 1px;
     background-color: $urban-gray-light;
   }
-}
-
-.active {
-  background: rgba(164, 200, 255, 0.5);
+  .active {
+    background: rgba(164, 200, 255, 0.5);
+  }
 }

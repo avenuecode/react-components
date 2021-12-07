@@ -25,14 +25,14 @@ ___
 
 Import the variables, mixins, and helpers all in one go
 ```scss
-@import "~@ac-ui/design-system/src/base";
+@import "~@avenueeco/design-system/src/base";
 ```
 
 **Is it built around a TWBS Component**
 
 Import the 'bridge', which imports variables, helpers, and utility classes for the component
 ```scss
-@import "~@ac-ui/design-system/src/bridge/buttons";
+@import "~@avenueeco/design-system/src/bridge/buttons";
 ```
 
 **Always style using variables, and TWBS where possible!**
@@ -40,7 +40,7 @@ Import the 'bridge', which imports variables, helpers, and utility classes for t
 A variable doesn't exist?
   * Is there one close to it? Use that.
   * Is it going to be used only in this component? Initiate variable there
-  * Is it only going to be used in many files? Add it to @ac-ui/design-system
+  * Is it only going to be used in many files? Add it to @avenueeco/design-system
 ___
 #### **How do I use this component?**
 ___

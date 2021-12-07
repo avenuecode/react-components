@@ -1,4 +1,4 @@
-@import '~@ac-ui/design-system/src/base';
+@import '~@avenueeco/design-system/src/base';
 
 .ac-subheader {
   &-wrapper {
@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
     padding: map-get($spacers, 3) map-get($spacers, 5);
-    background: $white;
+    background: transparent;
     border-bottom: 1px solid #d3d3d3;
   }
 

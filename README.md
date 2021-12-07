@@ -1,19 +1,19 @@
-# @ac-ui/react-components
+# @avenueeco/react-components
 
 A React Component library
 
 ## Installation
-- Install as a npm dependency `npm i @ac-ui/react-components`
+- Install as a npm dependency `npm i @avenueeco/react-components`
 - Import component
     - ```jsx harmony
-      import { Subheader } from '~@ac-ui/react-components';
+      import { Subheader } from '~@avenueeco/react-components';
       
       const Example = () => <Subheader title={"Subheader example"}/> 
       ```
 
 ## Contribution
 
-Everyone is encouraged and welcome to contribute to @ac-ui/react-components! This library is built (being built) for 
+Everyone is encouraged and welcome to contribute to @avenueeco/react-components! This library is built (being built) for 
 Avenue Coders to use, and to develop. To maintain usability, keep code consistent, and to ensure a quality product,
 linting and pre-commit hooks have been added in to the repository.
 
@@ -35,12 +35,12 @@ linting and pre-commit hooks have been added in to the repository.
 **How do I style a component?**
 - Completely custom element?
     - Import the variables, mixins, and helpers all in one go
-        - (`@import "~@ac-ui/design-system/src/base";`)
+        - (`@import "~@avenueeco/design-system/src/base";`)
 - Is it built around a [TWBS Component](https://getbootstrap.com/docs/4.1/components)
     - Import the 'bridge', which imports variables, helpers, and utility classes for the component
-        - (`@import "~@ac-ui/design-system/src/bridge/buttons";`)
+        - (`@import "~@avenueeco/design-system/src/bridge/buttons";`)
 - Always style using variables, and TWBS where possible!
     - A variable doesn't exist? 
         - Is there one close to it? Use that.
         - Is it going to be used only in this component? Initiate variable there
-        - Is it only going to be used in many files? Add it to `@ac-ui/design-system`
+        - Is it only going to be used in many files? Add it to `@avenueeco/design-system`

@@ -12,12 +12,12 @@ There are a few additional points to keep in mind when using TabSelector:
 
 ---
 
-This component uses `Bootstrap nav` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+This component uses `Bootstrap nav` classes in addition to `Avenue Eco` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
 
 ```scss
-@import '~@ac-ui/design-system/src/base';
-@import '~@ac-ui/design-system/src/bridge/nav';
+@import '~@avenueeco/design-system/src/base';
+@import '~@avenueeco/design-system/src/bridge/nav';
 ```
 
 ---
@@ -76,9 +76,6 @@ const ExampleTabSelector = () => {
       <BrowserRouter>
         <div className="page-wrapper container d-flex flex-column">
           <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
-            <h2 className="text-capitalize font-weight-black no-selec">
-              Title
-            </h2>
             <TabSelector tabItems={tabItems} />
           </div>
           <hr className="my-4" />
@@ -375,6 +372,165 @@ const ExampleTabSelector = () => {
           </div>
         </div>
       </Fragment>
+    </>
+  );
+};
+
+<ExampleTabSelector />;
+```
+
+
+# Other variants
+You can specify the following variants to this component:
+### Engage
+
+```jsx
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'REQUEST',
+      path: '/request-management',
+      label: 'My Time Entries'
+    },
+    {
+      id: 'WEEKS',
+      path: '/weeks-management',
+      label: 'Weeks'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <Link
+      key={tabData.id}
+      to={tabData.path}
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </Link>
+  ));
+
+  return (
+    <>
+      <BrowserRouter>
+        <div className="page-wrapper container d-flex flex-column">
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <TabSelector tabItems={tabItems} variant="engage" />
+          </div>
+          <hr className="my-4" />
+        </div>
+      </BrowserRouter>
+    </>
+  );
+};
+
+<ExampleTabSelector />;
+```
+
+### Expand
+
+```jsx
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'REQUEST',
+      path: '/request-management',
+      label: 'Management'
+    },
+    {
+      id: 'WEEKS',
+      path: '/weeks-management',
+      label: 'Weeks'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <Link
+      key={tabData.id}
+      to={tabData.path}
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </Link>
+  ));
+
+  return (
+    <>
+      <BrowserRouter>
+        <div className="page-wrapper container d-flex flex-column">
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <TabSelector tabItems={tabItems} variant="expand" />
+          </div>
+          <hr className="my-4" />
+        </div>
+      </BrowserRouter>
+    </>
+  );
+};
+
+<ExampleTabSelector />;
+```
+
+### Exceed
+
+```jsx
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'REQUEST',
+      path: '/request-management',
+      label: 'Management'
+    },
+    {
+      id: 'WEEKS',
+      path: '/weeks-management',
+      label: 'Weeks'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <Link
+      key={tabData.id}
+      to={tabData.path}
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </Link>
+  ));
+
+  return (
+    <>
+      <BrowserRouter>
+        <div className="page-wrapper container d-flex flex-column">
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <TabSelector tabItems={tabItems} variant="exceed" />
+          </div>
+          <hr className="my-4" />
+        </div>
+      </BrowserRouter>
     </>
   );
 };
