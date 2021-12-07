@@ -434,6 +434,58 @@ const ExampleTabSelector = () => {
 <ExampleTabSelector />;
 ```
 
+### Expand
+
+```jsx
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+
+const ExampleTabSelector = () => {
+  const tabItemsData = [
+    {
+      id: 'REQUEST',
+      path: '/request-management',
+      label: 'Management'
+    },
+    {
+      id: 'WEEKS',
+      path: '/weeks-management',
+      label: 'Weeks'
+    }
+  ];
+
+  const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
+
+  const tabItems = tabItemsData.map(tabData => (
+    <Link
+      key={tabData.id}
+      to={tabData.path}
+      className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
+      onClick={() => {
+        setCurrentTab(tabData.id);
+      }}
+    >
+      {tabData.label}
+    </Link>
+  ));
+
+  return (
+    <>
+      <BrowserRouter>
+        <div className="page-wrapper container d-flex flex-column">
+          <div className="page-header section-header mt-5 mb-4 d-flex justify-content-between">
+            <TabSelector tabItems={tabItems} variant="expand" />
+          </div>
+          <hr className="my-4" />
+        </div>
+      </BrowserRouter>
+    </>
+  );
+};
+
+<ExampleTabSelector />;
+```
+
 ### Exceed
 
 ```jsx

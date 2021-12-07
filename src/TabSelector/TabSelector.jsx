@@ -8,7 +8,7 @@ type Props = {
   /** Boolean to show or not the animation of tab transition. */
   hasTabTransitionAnimation?: Boolean,
   /** The desired variant: "engage" "ligth" */
-  variant?: 'engage' | 'expand' | 'exceed',
+  variant?: 'engage' | 'expand' | 'exceed' | undefined,
 };
 
 const TabSelector = (props: Props) => {
@@ -42,6 +42,9 @@ const TabSelector = (props: Props) => {
       case 'exceed':
         return 'nav-tabs-exceed';
 
+      case 'expand':
+        return 'nav-tabs-expand';
+
       default:
         return 'nav-tabs';
     }
@@ -71,7 +74,7 @@ const TabSelector = (props: Props) => {
 
 TabSelector.defaultProps = {
   hasTabTransitionAnimation: true,
-  variant: 'expand'
+  variant: undefined
 };
 
 export default TabSelector;
