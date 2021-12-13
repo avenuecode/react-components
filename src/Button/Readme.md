@@ -44,3 +44,54 @@ Below are some self-contained usage examples.
 ```jsx
 <Button disabled>Button text</Button>
 ```
+
+## Variants: ##
+
+**Engage**
+```jsx
+import DownloadSVG from './assets/download.svg';
+<>
+    <Button classList={["mr-4"]} variant="engage"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="engage">Default</Button>
+</>
+```
+**Expand**
+```jsx
+import DownloadSVG from './assets/download.svg';
+<>
+    <Button classList={["mr-4"]} variant="expand"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="expand">Default</Button>
+</>
+```
+**Exceed**
+```jsx
+import DownloadSVG from './assets/download.svg';
+<>
+    <Button classList={["mr-4"]} variant="exceed"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="exceed">Default</Button>
+</>
+```
+**Secondary**
+```jsx
+import DownloadSVG from './assets/download2.svg';
+<>
+    <Button classList={["mr-4"]} variant="secondary"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="secondary">Default</Button>
+</>
+```
+**Tertiary**
+```jsx
+import DownloadSVG from './assets/download2.svg';
+<>
+    <Button classList={["mr-4"]} variant="tertiary"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="tertiary">Default</Button>
+</>
+```
+**Bordless**
+```jsx
+import DownloadSVG from './assets/download2.svg';
+<>
+    <Button classList={["mr-4"]} variant="bordless"><img src={DownloadSVG}/>Default</Button>
+    <Button variant="bordless">Default</Button>
+</>
+```
