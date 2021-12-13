@@ -9,6 +9,8 @@ type Props = {
   classList?: string | Array<string>,
   /** Custom click event handler. */
   onClick?: Function,
+  /** Variants. */
+  variant?: "engage" | "expand" | "exceed" | "secondary" | "tertiary" | "bordless",
 };
 
 const Button = (props: Props) => {
@@ -16,13 +18,36 @@ const Button = (props: Props) => {
     classList,
     onClick,
     children,
+    variant,
     ...rest
   } = props;
+
+  const getVariant = () => {
+    switch (variant) {
+      case 'exceed':
+        return 'button-exceed';
+
+      case 'expand':
+        return 'button-expand';
+
+      case 'secondary':
+        return 'btn-secondary';
+
+      case 'tertiary':
+        return 'button-tertiary';
+
+      case 'bordless':
+        return 'button-bordless';
+
+      default:
+        return 'btn-primary';
+    }
+  };
 
   return (
     <button
       type="button"
-      className={classNames('btn', classList)}
+      className={classNames('btn', getVariant(), classList)}
       onClick={onClick}
       {...rest}
     >
@@ -32,8 +57,9 @@ const Button = (props: Props) => {
 };
 
 Button.defaultProps = {
-  classList: ['btn-primary'],
+  classList: [],
   onClick: null,
+  variant: 'engage',
 };
 
 Button.displayName = 'Button';
