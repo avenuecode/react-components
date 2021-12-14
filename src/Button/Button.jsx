@@ -10,7 +10,7 @@ type Props = {
   /** Custom click event handler. */
   onClick?: Function,
   /** Variants. */
-  variant?: "engage" | "expand" | "exceed" | "secondary" | "tertiary" | "bordless",
+  variant?: "engage" | "expand" | "exceed" | "secondary" | "tertiary" | "bordless" | "outline-engage" | "outline-expand" | "outline-exceed",
 };
 
 const Button = (props: Props) => {
@@ -38,6 +38,15 @@ const Button = (props: Props) => {
 
       case 'bordless':
         return 'button-bordless';
+
+      case 'outline-engage':
+        return 'button-outline-engage';
+
+      case 'outline-expand':
+        return 'button-outline-expand';
+
+      case 'outline-exceed':
+        return 'button-outline-exceed';
 
       default:
         return 'btn-primary';

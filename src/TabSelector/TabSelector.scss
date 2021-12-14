@@ -8,7 +8,10 @@
 
   &.nav-tabs-expand {
     .nav-item {
-      min-width: ($spacer * 18);
+      min-width: 85px;
+      .nav-link {
+        width: auto;
+      }
     }
   }
 }

@@ -51,8 +51,9 @@ Below are some self-contained usage examples.
 ```jsx
 import DownloadSVG from './assets/download.svg';
 <>
-    <Button classList={["mr-4"]} variant="engage"><img src={DownloadSVG}/>Default</Button>
-    <Button variant="engage">Default</Button>
+<Button classList={["mr-4"]} variant="engage"><img src={DownloadSVG}/>Default</Button>
+<Button classList={["mr-4"]} variant="engage">Default</Button>
+<Button variant="outline-engage">Default</Button>
 </>
 ```
 **Expand**
@@ -60,7 +61,8 @@ import DownloadSVG from './assets/download.svg';
 import DownloadSVG from './assets/download.svg';
 <>
     <Button classList={["mr-4"]} variant="expand"><img src={DownloadSVG}/>Default</Button>
-    <Button variant="expand">Default</Button>
+    <Button classList={["mr-4"]} variant="expand">Default</Button>
+    <Button variant="outline-expand">Default</Button>
 </>
 ```
 **Exceed**
@@ -68,7 +70,8 @@ import DownloadSVG from './assets/download.svg';
 import DownloadSVG from './assets/download.svg';
 <>
     <Button classList={["mr-4"]} variant="exceed"><img src={DownloadSVG}/>Default</Button>
-    <Button variant="exceed">Default</Button>
+    <Button classList={["mr-4"]} variant="exceed">Default</Button>
+    <Button variant="outline-exceed">Default</Button>
 </>
 ```
 **Secondary**
