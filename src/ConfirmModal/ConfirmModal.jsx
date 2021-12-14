@@ -83,13 +83,13 @@ const ConfirmModal = (props: Props) => {
 
         <div className="mt-5 d-flex justify-content-end">
           <Button
-            classList="ac-modal--confirm__btn-dismiss btn btn-outline-dark m-3"
+            className="ac-modal--confirm__btn-dismiss btn btn-outline-dark m-3"
             style={{ border: 'transparent' }}
             onClick={onClose}
           >
             {dismissButtonLabel}
           </Button>
-          <Button classList={`ac-modal--confirm__btn-confirm btn btn-${dialogType} m-3`} onClick={onConfirm}>{confirmButtonLabel}</Button>
+          <Button className={`ac-modal--confirm__btn-confirm btn btn-${dialogType} m-3`} onClick={onConfirm}>{confirmButtonLabel}</Button>
         </div>
       </div>
     </Modal>
