@@ -394,7 +394,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { X } from 'react-feather';
 import { TabSelector } from '../src';
 import Header from '../src/b_Header';
-import SideMenu from '../src/b_SideMenu';
+import SideMenu from '../src/SideMenu';
 
 import AClogoSVG from './assets/logo-avenue-code.svg';
 import CalendarWeekSVG from './assets/calendar-week.svg';
