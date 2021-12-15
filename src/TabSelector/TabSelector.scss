@@ -5,13 +5,4 @@
   .nav-item {
     min-width: ($spacer * 24);
   }
-
-  &.nav-tabs-expand {
-    .nav-item {
-      min-width: 85px;
-      .nav-link {
-        width: auto;
-      }
-    }
-  }
 }
