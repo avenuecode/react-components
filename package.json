@@ -34,7 +34,7 @@
     "component:stub": "./node_modules/.bin/copyfiles -a -V --up 2 ./templates/Component/* ./src/Component.scratch/"
   },
   "dependencies": {
-    "@avenueeco/design-system": "1.0.6",
+    "@avenueeco/design-system": "1.0.7",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-export-default-from": "^7.16.0",
