@@ -1,5 +1,6 @@
 {
   "name": "@avenueeco/react-components",
+  "version": "1.0.6",
   "private": false,
   "engines": {
     "node": ">=10.0.0"
@@ -8,7 +9,6 @@
     "type": "git",
     "url": "git@github.com:avenuecode/react-components.git"
   },
-  "version": "1.0.5",
   "jsnext:main": "dist/es/index.js",
   "main": "dist/commonjs/index.js",
   "module": "dist/es/index.js",
