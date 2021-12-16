@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
-import './style.scss';
 
 type Props = {
   /** List of elements to be rendered inside menu. Those must have the following structure:
@@ -56,8 +55,8 @@ SideMenu.defaultProps = {
     }
   ],
   classList: [],
+  currentItem: [],
+  setCurrentItem: () => {}
 };
-
-SideMenu.displayName = 'SideMenu (beta)';
 
 export default SideMenu;
