@@ -111,8 +111,8 @@ class Header extends React.Component<Props> {
                 {notificationContent}
               </Notification>
             </div>
-            {headerItems?.map(headerItemComponent => (
-              <div className="ac-header-item ac-header-item-action">
+            {headerItems?.map((headerItemComponent, index) => (
+              <div key={index} className="ac-header-item ac-header-item-action">
                 {headerItemComponent}
               </div>
             ))}
