@@ -42,7 +42,7 @@ const TableHeader = (props: Props) => {
 };
 
 TableHeader.defaultProps = {
-  classList: 'text-center text-uppercase font-weight-bold',
+  classList: 'text-uppercase font-weight-bold',
   CustomTableHeader: null,
 };
 
