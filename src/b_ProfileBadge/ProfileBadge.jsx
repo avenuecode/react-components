@@ -34,13 +34,6 @@ const ProfileBadge = (props: Props) => {
     >
       <div>
         <img
-          className="ac-profile-badge__logo"
-          src={logo}
-          alt="Company Logo"
-        />
-      </div>
-      <div>
-        <img
           className="ac-profile-badge__picture"
           src={picture}
           alt="Profile Avatar"
