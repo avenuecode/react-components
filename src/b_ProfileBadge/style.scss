@@ -1,16 +1,6 @@
 @import '~@avenueeco/design-system/src/base';
 
 .ac-profile-badge {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100px;
-  height: 32px;
-  padding: 0 4px;
-  overflow: hidden;
-  background: $urban-gray-lighter;
-  border-radius: 8px;
-
   &__logo {
     width: 64px;
     height: 32px;
@@ -18,8 +8,8 @@
   }
 
   &__picture {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     margin: 4px;
     object-fit: contain;
   }
