@@ -4,5 +4,6 @@
 .ac-tab-selector {
   .nav-item {
     min-width: ($spacer * 24);
+    text-transform: none !important;
   }
 }
