@@ -9,10 +9,13 @@ type Props = {
   hasTabTransitionAnimation?: Boolean,
   /** The desired variant: "engage" "ligth" */
   variant?: 'engage' | 'expand' | 'exceed' | undefined,
+  justify?: 'start' | 'end'
 };
 
 const TabSelector = (props: Props) => {
-  const { tabItems, hasTabTransitionAnimation, variant } = props;
+  const {
+    tabItems, hasTabTransitionAnimation, variant, justify
+  } = props;
   const hasTabItems = tabItems && tabItems.length > 0;
   let tabAnimationStyle = {};
 
@@ -50,9 +53,19 @@ const TabSelector = (props: Props) => {
     }
   };
 
+  const getJustify = () => {
+    switch (justify) {
+      case 'start':
+        return 'justify-content-start';
+      case 'end':
+      default:
+        return 'justify-content-end';
+    }
+  };
+
   return (
     <div
-      className={classNames('ac-tab-selector', 'nav', 'position-relative', 'd-flex', 'justify-content-end', getVariant())}
+      className={classNames('ac-tab-selector', 'nav', 'position-relative', 'd-flex', getJustify(), getVariant())}
       role="tablist"
     >
       {hasTabItems
@@ -74,7 +87,8 @@ const TabSelector = (props: Props) => {
 
 TabSelector.defaultProps = {
   hasTabTransitionAnimation: true,
-  variant: undefined
+  variant: undefined,
+  justify: 'end'
 };
 
 export default TabSelector;
