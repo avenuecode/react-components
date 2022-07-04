@@ -1,0 +1,52 @@
+@import '../themes/apps.scss';
+@import '~@avenueeco/design-system/src/theme';
+
+.linkContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  padding-left: 40px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  &:link {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover {
+    @extend .primary;
+    text-decoration: none;
+    background-color: $lighter;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: $text-main;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  color: $text-main;
+}
+
+.active {
+  @extend .primary;
+  font-weight: 700;
+  color: $dark;
+  background-color: $lighter;
+}
