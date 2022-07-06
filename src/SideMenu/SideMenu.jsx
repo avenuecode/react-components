@@ -1,62 +1,102 @@
-// @flow
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import MenuItem, { MenuItemProps } from '../MenuItem/MenuItem';
+import styles from './SideMenu.module.scss';
 
-type Props = {
-  /** List of elements to be rendered inside menu. Those must have the following structure:
-      {
-      title: Category Title,
-      items: List of items inside category:
-        { id: Item Id, path: Router Path, name: Item Display Name }
-      }
-   */
-  menuData?: any[],
+export type GroupProps = {
+  title?: string,
+  items: MenuItemProps[]
+};
+
+export type PaletteColorSetName =
+  | 'inherit'
+  | 'primary'
+  | 'secundary'
+  | 'success'
+  | 'error'
+  | 'info'
+  | 'warning';
+
+export type SideMenuProps = {
+  logoImage?: ReactNode,
+  menuButton?: ReactNode,
+  groups?: GroupProps[],
+  renderItem?: (itemData: MenuItemProps) => ReactNode,
+  themeName?: String,
+  color?: PaletteColorSetName,
   classList?: string | Array<string>,
-  currentItem: String,
-  setCurrentItem: (id: string) => void,
+  order?: number,
+  footer?: ReactNode
 };
 
 const SideMenu = ({
-  menuData, classList, setCurrentItem, currentItem
-}: Props) => (
-  <div className={classNames('ac-side-menu', classList)}>
-    {menuData.map(category => (
-      <div className={classNames('ac-side-menu-category', classList)} key={category.id}>
-        <div className={classNames('ac-side-menu-category-title', classList)}>{category.title}</div>
-        {category.items.map(item => (
-          <div
-            onKeyDown={() => {
-              setCurrentItem(item.id);
-            }}
-            tabIndex={0}
-            role="button"
-            key={item.id}
-            to={item.path}
-            className={classNames('ac-side-menu-item', { active: currentItem === item.id }, classList)}
-            onClick={() => {
-              setCurrentItem(item.id);
-            }}
-          >
-            {item.icon}
-            {item.linkComponent}
+  groups,
+  themeName,
+  renderItem,
+  classList,
+  menuButton,
+  color,
+  logoImage,
+  footer
+}: SideMenuProps) => (
+  <div
+    className={classNames(
+      styles.sideMenu,
+      `${themeName ? styles[themeName] : ''}`,
+      styles[color]
+    )}
+  >
+    <div className={styles.logoContainer}>
+      <div className={styles.logoImage}>{logoImage}</div>
+      {menuButton ? (
+        <div className={styles.menuButton}>{menuButton}</div>
+      ) : null}
+    </div>
+    <hr className={styles.divisor} />
+    <div className={styles.container}>
+      {groups?.map(({ items, title }) => (
+        <div
+          className={classNames(styles.group, classList)}
+          key={title.replace(/ /g, '-')}
+        >
+          <div className={classNames(styles.groupTitle, classList)}>
+            {title}
           </div>
-        ))}
+          {items
+            ?.sort((a, b) => (a.order > b.order ? 1 : -1))
+            .map(itemProps => (renderItem ? (
+              renderItem(itemProps)
+            ) : (
+              <MenuItem
+                key={itemProps.label.replace(/ /g, '-')}
+                {...itemProps}
+              />
+            ))
+            )}
+        </div>
+      ))}
+      <div className={classNames(styles.footer, classList)}>
+        {footer || <>&nbsp;</>}
       </div>
-    ))}
-    <div className={classNames('ac-side-menu-end', classList)} />
+    </div>
   </div>
 );
 
 SideMenu.defaultProps = {
-  menuData: [
+  groups: [
     {
       title: 'No categories',
-      items: [{ id: 'NO_ITEM', path: '', name: 'No Items' }]
+      items: [{ path: '', title: 'No items', group: 'No categories' }]
     }
   ],
-  classList: [],
-  currentItem: [],
-  setCurrentItem: () => {}
+  renderItem: undefined,
+  classList: '',
+  themeName: 'engage',
+  color: 'inherit',
+  order: 0,
+  footer: undefined,
+  logoImage: null,
+  menuButton: undefined
 };
 
 export default SideMenu;

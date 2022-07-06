@@ -1,0 +1,71 @@
+@import '~@avenueeco/design-system/src/theme';
+
+$text-main: #374151;
+$text-subtitle: #818182;
+
+$new-orange-darker: #ff5965;
+$new-orange-dark: #ef5412;
+$new-orange: #fa8655;
+$new-orange-light: #edaa6c;
+$new-orange-lighter: #fdf0e4;
+
+$main: var(--main);
+$darker: var(--darker);
+$dark: var(--dark);
+$light: var(--light);
+$lighter: var(--lighter);
+$contrast-text: var(--contrast-text);
+
+.expand {
+  --main: #{$brand-gray};
+  --darker: #{$brand-gray-darker};
+  --dark: #{$brand-gray-dark};
+  --light: #{$brand-gray-light};
+  --lighter: #{$brand-gray-lighter};
+  --contrast-text: #{$white};
+
+  &.primary {
+    --main: #{$new-orange};
+    --darker: #{$new-orange-darker};
+    --dark: #{$new-orange-dark};
+    --light: #{$new-orange-light};
+    --lighter: #{$new-orange-lighter};
+    --contrast-text: #{$white};
+  }
+
+  &.secundary {
+    --main: #{$brand-blue};
+    --darker: #{$brand-blue-darker};
+    --dark: #{$brand-blue-dark};
+    --light: #{$brand-blue-light};
+    --lighter: #{$brand-blue-lighter};
+    --contrast-text: #{$white};
+  }
+
+  &.error {
+    --main: #{$brand-red};
+    --darker: #{$brand-red-darker};
+    --dark: #{$brand-red-dark};
+    --light: #{$brand-red-light};
+    --lighter: #{$brand-red-lighter};
+    --contrast-text: #{$white};
+  }
+
+  &.success {
+    --main: #{$brand-green};
+    --darker: #{$brand-green-darker};
+    --dark: #{$brand-green-dark};
+    --light: #{$brand-green-light};
+    --lighter: #{$brand-green-lighter};
+    --contrast-text: #{$white};
+  }
+
+  &.warning {
+    --main: #{$brand-orange};
+    --darker: #{$brand-orange-darker};
+    --dark: #{$brand-orange-dark};
+    --light: #{$brand-orange-light};
+    --lighter: #{$brand-orange-lighter};
+    --contrast-text: #{$white};
+  }
+}

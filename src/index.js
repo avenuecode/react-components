@@ -19,6 +19,7 @@ import HeaderV2 from './b_Header';
 import HeaderTitleV2 from './b_HeaderTitle';
 import Notification from './b_Notification';
 import SideMenu from './SideMenu';
+import MenuItem from './MenuItem';
 
 export {
   AlertModal,
@@ -43,5 +44,6 @@ export {
   HeaderV2,
   HeaderTitleV2,
   Notification,
-  SideMenu
+  SideMenu,
+  MenuItem
 };

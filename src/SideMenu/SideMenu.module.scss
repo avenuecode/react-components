@@ -1,0 +1,59 @@
+@import '../themes/apps.scss';
+@import '~@avenueeco/design-system/src/theme';
+
+.sideMenu {
+  top: 70px;
+  width: 261px;
+  height: calc(100vh - 20px);
+}
+
+.group {
+  margin-top: 24px;
+}
+
+.groupTitle {
+  padding-bottom: 4px;
+  padding-left: 40px;
+  font-size: 10px;
+  color: $text-subtitle;
+}
+
+.logoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding-left: 40px;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: calc(100vh - 76px);
+  margin-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.logoImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.menuButton {
+  margin-right: 8px;
+}
+
+.divisor {
+  margin: 0;
+  color: $text-subtitle;
+  border-width: 1px;
+}
+
+.footer {
+  min-height: 64px;
+}
