@@ -1,11 +1,20 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import MenuItem, { MenuItemProps } from '../MenuItem/MenuItem';
+import MenuSubItem from '../MenuSubItem/MenuSubItem';
 import styles from './SideMenu.module.scss';
 
 export type GroupProps = {
   title?: string,
   items: MenuItemProps[]
+};
+
+export type CollapsableGroupProps = {
+  title?: string,
+  icon: ReactNode,
+  items: MenuItemProps[],
+  isCollapsed?: boolean,
+  onCollapsedChange: (groupProps: CollapsableGroupProps) => void
 };
 
 export type PaletteColorSetName =
@@ -20,8 +29,7 @@ export type PaletteColorSetName =
 export type SideMenuProps = {
   logoImage?: ReactNode,
   menuButton?: ReactNode,
-  groups?: GroupProps[],
-  renderItem?: (itemData: MenuItemProps) => ReactNode,
+  groups?: (GroupProps | CollapsableGroupProps)[],
   themeName?: String,
   color?: PaletteColorSetName,
   classList?: string | Array<string>,
@@ -32,55 +40,109 @@ export type SideMenuProps = {
 const SideMenu = ({
   groups,
   themeName,
-  renderItem,
   classList,
   menuButton,
   color,
   logoImage,
   footer
-}: SideMenuProps) => (
-  <div
-    className={classNames(
-      styles.sideMenu,
-      `${themeName ? styles[themeName] : ''}`,
-      styles[color]
-    )}
-  >
-    <div className={styles.logoContainer}>
-      <div className={styles.logoImage}>{logoImage}</div>
-      {menuButton ? (
-        <div className={styles.menuButton}>{menuButton}</div>
-      ) : null}
-    </div>
-    <hr className={styles.divisor} />
-    <div className={styles.container}>
-      {groups?.map(({ items, title }) => (
-        <div
-          className={classNames(styles.group, classList)}
-          key={title.replace(/ /g, '-')}
-        >
-          <div className={classNames(styles.groupTitle, classList)}>
-            {title}
-          </div>
-          {items
-            ?.sort((a, b) => (a.order > b.order ? 1 : -1))
-            .map(itemProps => (renderItem ? (
-              renderItem(itemProps)
-            ) : (
-              <MenuItem
-                key={itemProps.label.replace(/ /g, '-')}
-                {...itemProps}
-              />
-            ))
+}: SideMenuProps) => {
+  const renderGroup = ({ title, items }: GroupProps) => {
+    return (
+      <div
+        className={classNames(styles.group, classList)}
+        key={title.replace(/ /g, '-')}
+      >
+        <div className={classNames(styles.groupTitle, classList)}>{title}</div>
+        {items
+          ?.sort((a, b) => (a.order > b.order ? 1 : -1))
+          .map(itemProps => (
+            <MenuItem key={itemProps.label.replace(/ /g, '-')} {...itemProps} />
+          ))}
+      </div>
+    );
+  };
+
+  const renderCollapsableGroup = (group: CollapsableGroupProps) => {
+    const { title, items, icon, isCollapsed, onCollapsedChange } = group;
+
+    const groupActive = items.some(item => item.active);
+
+    return (
+      <>
+        <div className={styles.collapsableGroup} key={title.replace(/ /g, '-')}>
+          <div
+            className={classNames(
+              styles.collapsableGroupHeader,
+              groupActive ? styles.active : ''
             )}
+            onClick={() => onCollapsedChange?.(group)}
+          >
+            <div
+              className={classNames(
+                styles.icon,
+                groupActive ? styles.active : ''
+              )}
+            >
+              {icon}
+            </div>
+            <div
+              className={classNames(
+                styles.collapsableGroupTitle,
+                groupActive ? styles.active : ''
+              )}
+            >
+              {title}
+            </div>
+          </div>
+          <div
+            className={classNames(
+              styles.itemsContainer,
+              isCollapsed ? styles.collapsed : styles.expanded
+            )}
+          >
+            {items
+              ?.sort((a, b) => (a.order > b.order ? 1 : -1))
+              .map(itemProps => (
+                <MenuSubItem
+                  key={itemProps.label.replace(/ /g, '-')}
+                  {...itemProps}
+                />
+              ))}
+          </div>
         </div>
-      ))}
-      <div className={classNames(styles.footer, classList)}>
-        {footer || <>&nbsp;</>}
+      </>
+    );
+  };
+
+  return (
+    <div
+      className={classNames(
+        styles.sideMenu,
+        `${themeName ? styles[themeName] : ''}`,
+        styles[color]
+      )}
+    >
+      <div className={styles.logoContainer}>
+        <div className={styles.logoImage}>{logoImage}</div>
+        {menuButton ? (
+          <div className={styles.menuButton}>{menuButton}</div>
+        ) : null}
+      </div>
+      <hr className={styles.divisor} />
+      <div className={styles.container}>
+        {groups?.map(group => {
+          return group?.onCollapsedChange
+            ? renderCollapsableGroup(group)
+            : renderGroup(group);
+        })}
+
+        <div className={classNames(styles.footer, classList)}>
+          {footer || <>&nbsp;</>}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 SideMenu.defaultProps = {
   groups: [
@@ -89,7 +151,6 @@ SideMenu.defaultProps = {
       items: [{ path: '', title: 'No items', group: 'No categories' }]
     }
   ],
-  renderItem: undefined,
   classList: '',
   themeName: 'engage',
   color: 'inherit',

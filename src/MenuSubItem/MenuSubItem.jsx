@@ -1,18 +1,18 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import styles from './MenuItem.module.scss';
+import styles from './MenuSubItem.module.scss';
+import ChevronRight from '../assets/chevron-right.svg';
 
-export type MenuItemProps = {
-  icon?: ReactNode,
+export type MenuSubItemProps = {
   label: String,
   path: String,
   active?: String,
-  onClick?: (itemProps: MenuItemProps) => void,
+  onClick?: (itemProps: MenuSubItemProps) => void,
   className?: String
 };
 
-const MenuItem = (props: MenuItemProps) => {
-  const { icon, label, path, active, className, onClick } = props;
+const MenuSubItem = (props: MenuSubItemProps) => {
+  const { label, path, active, className, onClick } = props;
   return (
     <a
       href={path}
@@ -31,39 +31,29 @@ const MenuItem = (props: MenuItemProps) => {
       <div
         className={classNames(
           className,
-          styles.icon,
-          active ? styles.active : ''
-        )}
-      >
-        {icon}
-      </div>
-      <div
-        className={classNames(
-          className,
           styles.label,
           active ? styles.active : ''
         )}
       >
         {label}
       </div>
+      <div
+        className={classNames(
+          className,
+          styles.icon,
+          active ? styles.active : ''
+        )}
+      >
+        <img src={ChevronRight} alt=">" />
+      </div>
     </a>
   );
 };
-// <div
-//   tabIndex={0}
-//   role="button"
-//   key={label.replace(/ /g, '-')}
-//   to={path}
-//   className={classNames(styles['ac-menu-item'], active ? styles.active : '')}
-// >
 
-// </div>
-
-MenuItem.defaultProps = {
-  icon: null,
+MenuSubItem.defaultProps = {
   active: false,
   onClick: undefined,
   className: ''
 };
 
-export default MenuItem;
+export default MenuSubItem;
