@@ -80,7 +80,7 @@ class Header extends React.Component<Props> {
 
     return (
       <div className="ac-header nav-wrapper">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between ac-header-container">
           <div>
             {onHamburgerMenuClick && (
               <Menu
@@ -112,7 +112,7 @@ class Header extends React.Component<Props> {
               </Notification>
             </div>
             {headerItems?.map((headerItemComponent, index) => (
-              <div key={index} className="ac-header-item ac-header-item-action">
+              <div key={index.toString()} className="ac-header-item ac-header-item-action">
                 {headerItemComponent}
               </div>
             ))}
