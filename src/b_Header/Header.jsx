@@ -33,7 +33,8 @@ type Props = {
   /**
    * Custom Header Items React Components to be rendered along side with preexisting Header Items
    */
-  headerItems?: Array<React.Element>
+  headerItems?: Array<React.Element>,
+  leftContainer: Array<React.Element>
 };
 
 class Header extends React.Component<Props> {
@@ -59,7 +60,8 @@ class Header extends React.Component<Props> {
       notificationCount,
       profileContent,
       isProfilePopover,
-      headerItems
+      headerItems,
+      leftContainer,
     } = this.props;
 
     const onDotsMenuClick = () => {
@@ -81,7 +83,7 @@ class Header extends React.Component<Props> {
     return (
       <div className="ac-header nav-wrapper">
         <div className="d-flex justify-content-between">
-          <div>
+          <div className="d-flex">
             {onHamburgerMenuClick && (
               <Menu
                 className="ac-header-navbar__hamburger-icon navbar-brand feather-24"
@@ -90,6 +92,9 @@ class Header extends React.Component<Props> {
             )}
 
             <HeaderTitle text={title} logo={logo} />
+            <div className="d-flex align-items-center mx-3">
+              {leftContainer}
+            </div>
           </div>
 
           <div className="d-flex justify-content-between align-items-center">
@@ -112,6 +117,7 @@ class Header extends React.Component<Props> {
               </Notification>
             </div>
             {headerItems?.map((headerItemComponent, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <div key={index} className="ac-header-item ac-header-item-action">
                 {headerItemComponent}
               </div>
