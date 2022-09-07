@@ -26,6 +26,8 @@ type Props = {
   notificationContent: React.Element,
   /** Number of notifications */
   notificationCount: integer,
+  /** Hide notification icon */
+  hideNotification?: boolean,
   /** Elements to be rendered inside profile modal. */
   profileContent: React.Element,
   /** Controls whether profile content will be popover instead of modal */
@@ -58,14 +60,17 @@ class Header extends React.Component<Props> {
       dotsMenuChildren,
       notificationContent,
       notificationCount,
+      hideNotification,
       profileContent,
       isProfilePopover,
       headerItems,
-      leftContainer,
+      leftContainer
     } = this.props;
 
     const onDotsMenuClick = () => {
-      this.setState(prevState => ({ isDotsMenuOpen: !prevState.isDotsMenuOpen }));
+      this.setState(prevState => ({
+        isDotsMenuOpen: !prevState.isDotsMenuOpen
+      }));
     };
 
     const closeDotMenu = () => {
@@ -73,7 +78,9 @@ class Header extends React.Component<Props> {
     };
 
     const onNotificationClick = () => {
-      this.setState(prevState => ({ isNotificationsOpen: !prevState.isNotificationsOpen }));
+      this.setState(prevState => ({
+        isNotificationsOpen: !prevState.isNotificationsOpen
+      }));
     };
 
     const onProfileClick = () => {
@@ -107,17 +114,22 @@ class Header extends React.Component<Props> {
                 {dotsMenuChildren}
               </DotsMenu>
             </div>
-            <div className="ac-header-item ac-header-item-notification">
-              <Notification
-                count={notificationCount}
-                isOpen={this.state.isNotificationsOpen}
-                handleClick={onNotificationClick}
-              >
-                {notificationContent}
-              </Notification>
-            </div>
+            {!hideNotification && (
+              <div className="ac-header-item ac-header-item-notification">
+                <Notification
+                  count={notificationCount}
+                  isOpen={this.state.isNotificationsOpen}
+                  handleClick={onNotificationClick}
+                >
+                  {notificationContent}
+                </Notification>
+              </div>
+            )}
             {headerItems?.map((headerItemComponent, index) => (
-              <div key={index.toString()} className="ac-header-item ac-header-item-action">
+              <div
+                key={index.toString()}
+                className="ac-header-item ac-header-item-action"
+              >
                 {headerItemComponent}
               </div>
             ))}
@@ -146,7 +158,8 @@ Header.defaultProps = {
   profilePicture: null,
   onHamburgerMenuClick: null,
   isProfilePopover: false,
-  headerItems: []
+  headerItems: [],
+  hideNotification: false
 };
 
 Header.displayName = 'Header (beta)';
