@@ -1,6 +1,6 @@
 {
   "name": "@avenueeco/react-components",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "private": false,
   "engines": {
     "node": ">=10.0.0"
