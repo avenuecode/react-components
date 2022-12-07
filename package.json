@@ -51,7 +51,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "flow-bin": "^0.98.1",
     "jest": "^24.9.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^13.1.0",
     "moment": "^2.29.1",
     "react": "^16.10.2",
     "react-datepicker": "^2.16.0",
